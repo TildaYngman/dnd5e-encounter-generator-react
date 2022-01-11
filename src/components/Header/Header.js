@@ -5,7 +5,7 @@ function Header() {
   return (
     <header id="header">
         <section id="banner">
-            <img src={banner} alt="Banner text image" />
+            <img src={banner} alt="Banner text" />
         </section>
         <section id="difficulty-meter">
             <h2>Add some monsters to begin!</h2>

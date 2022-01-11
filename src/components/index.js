@@ -1,3 +1,4 @@
 import Header from "./Header";
+import PlayerSelect from "./PlayerSelect";
 
-export { Header };
+export { Header, PlayerSelect };

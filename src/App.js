@@ -1,18 +1,31 @@
 import React, { useState, useEffect, useReducer } from "react";
-// import './styles/css/App.css';
-import { Header } from "./components";
+import { Header, PlayerSelect } from "./components";
 
 
 
 function App() {
   return (
-    <Header />
-
-
+    <>
+      <Header />
+      <main>
+        <section id="players-section">
+          <div id="players-top">
+            <PlayerSelect />
+            {/* PLAYER DISPLAY */}
+            {/* MOBILE MONSTER CONTROLS */}
+          </div>
+          <div id="players-top">
+            {/* PLAYER SUMMARY LEFT */}
+            {/* PLAYER SUMMARY RIGHT */}
+          </div>
+        </section>
+      </main>
+    </>
 
     //     <main>
     //       <section id="players-section">
     //         <div id="players-top">
+
     //             <div id="player-select">
     //               <label for="number-of-players">Party Size:</label>
     //               <select name="players" id="number-of-players">
@@ -26,6 +39,7 @@ function App() {
     //                   <option value="8">Eight</option>
     //               </select>
     //             </div>
+
     //             <div id="player-display">
     //               <div class="player-level-selector">
     //                   <label for="player-one">Player Level:</label>
@@ -53,25 +67,34 @@ function App() {
     //                   </select>
     //               </div>
     //             </div>
+
     //             <div id="mobile-monster-controls">
     //               <button id="toggle-monsters-btn">>> Show Monsters >></button>
     //             </div>
+
     //         </div>
+
     //         <div id="players-bottom">
+
     //             <div id="player-summary-left">
     //               <p>Easy: </p>
     //               <p>Medium: </p>
     //               <p>Hard: </p>
     //               <p>Deadly: </p>
     //             </div>
+
     //             <div id="player-summary-right">
     //               <p id="easy-xp">25XP</p>
     //               <p id="medium-xp">50XP</p>
     //               <p id="hard-xp">75XP</p>
     //               <p id="deadly-xp">100XP</p>
     //             </div>
+
     //         </div>
+
     //       </section>
+
+
     //       <section id="encounter-section">
     //         <div id="encounter-top">
 
