@@ -1,0 +1,87 @@
+@font-face {
+  font-family: 'texgyrebonum';
+  src: url("../../assets/fonts/texgyrebonum/texgyrebonum.eot");
+  /* IE9 Compat Modes */
+  src: url("../../assets/fonts/texgyrebonum/texgyrebonum.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/texgyrebonum/texgyrebonum.woff2") format("woff2"), url("../../assets/fonts/texgyrebonum/texgyrebonum.woff") format("woff"), url("../../assets/fonts/texgyrebonum/texgyrebonum.ttf") format("truetype"), url("../../assets/fonts/texgyrebonum/texgyrebonum.svg#texgyrebonum") format("svg");
+  /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+
+#header {
+  height: 25vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#header #banner {
+  height: 60%;
+  width: 100vw;
+  background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#header #banner img {
+  max-width: 1000px;
+  width: 95%;
+}
+
+#header #difficulty-meter {
+  height: 40%;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: transparent;
+}
+
+#header #difficulty-meter h2 {
+  display: inline-block;
+  text-align: center;
+  font-size: 1.563rem;
+}
+
+@media only screen and (max-width: 760px) {
+  #header #difficulty-meter h2 {
+    font-size: 1rem;
+  }
+}
+
+@font-face {
+  font-family: 'texgyrebonum';
+  src: url("../../assets/fonts/texgyrebonum/texgyrebonum.eot");
+  /* IE9 Compat Modes */
+  src: url("../../assets/fonts/texgyrebonum/texgyrebonum.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/texgyrebonum/texgyrebonum.woff2") format("woff2"), url("../../assets/fonts/texgyrebonum/texgyrebonum.woff") format("woff"), url("../../assets/fonts/texgyrebonum/texgyrebonum.ttf") format("truetype"), url("../../assets/fonts/texgyrebonum/texgyrebonum.svg#texgyrebonum") format("svg");
+  /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+/*# sourceMappingURL=style.css.map */
