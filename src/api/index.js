@@ -1,10 +1,10 @@
-// const defaultApiUrl = "https://api.open5e.com/";
+const defaultApiUrl = "https://api.open5e.com/";
 
-// async function fetchAllMonsters() {
-//   const response = await fetch(`${defaultApiUrl}monsters/?limit=2000`);
-//   const data = await response.json();
-//   return data.results;
-// }
+export async function fetchAllMonsters() {
+  const response = await fetch(`${defaultApiUrl}monsters/?limit=2000`);
+  const data = await response.json();
+  return data.results;
+}
 
 // async function initApp() {
 //   const monsters = await fetchMonsters(defaultApiUrl);

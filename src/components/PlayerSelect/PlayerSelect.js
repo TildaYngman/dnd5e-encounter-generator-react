@@ -1,7 +1,7 @@
 function PlayerSelect() {
   return (
     <div id="player-select">
-        <label for="number-of-players">Party Size:</label>
+        <label htmlFor="number-of-players">Party Size:</label>
         <select name="players" id="number-of-players">
             <option value="1">One</option>
             <option value="2">Two</option>

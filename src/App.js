@@ -1,12 +1,37 @@
 import React, { useState, useEffect, useReducer } from "react";
-import { Header, PlayerSelect, PartyList, MonsterToggle, PlayerSummary, EncounterSummary } from "./components";
+import { Header, PlayerSelect, PartyList, MonsterToggle, PlayerSummary, EncounterSummary, Loading } from "./components";
+import { fetchAllMonsters } from "./api";
 
+function hideLoadingScreen() {
+  document.getElementById("loading-screen").style.display = "none";
+}
 
 
 function App() {
+  const[loading, setLoading] = useState(true);
+  // const [error, setError] = useState(null);
+  let monsters = [];
+
+  useEffect(() => {
+    fetchAllMonsters()
+    .then((response) => monsters = response)
+    .then(() => console.log(monsters))
+    .then(() => setLoading(false))
+    // .catch(setError)
+  }, []);
+
+  useEffect(() => {
+    if (!loading) {
+      hideLoadingScreen();
+    }
+  }, [loading]);
+
+  // if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>
+
   return (
     <>
       <Header />
+      <Loading />
       <main>
         <section id="players-section">
           <div id="players-top">
@@ -31,12 +56,6 @@ function App() {
         </section>
       </main>
     </>
-          
-    //   <footer>
-    //   </footer>
-    //     <script type="module" src="./scripts/main.js"></script>  
-    // </body>
-    // </html>
   );
 }
 

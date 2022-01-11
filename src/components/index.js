@@ -4,7 +4,9 @@ import PartyList from "./PartyList";
 import MonsterToggle from "./MonsterToggle";
 import PlayerSummary from "./PlayerSummary";
 import EncounterSummary from "./EncounterSummary";
+import Loading from "./Loading";
 
 
 
-export { Header, PlayerSelect, PartyList, MonsterToggle, PlayerSummary, EncounterSummary };
+
+export { Header, PlayerSelect, PartyList, MonsterToggle, PlayerSummary, EncounterSummary, Loading };

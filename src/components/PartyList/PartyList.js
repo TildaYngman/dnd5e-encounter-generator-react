@@ -1,9 +1,9 @@
 function PartyList() {
     return (
         <div id="party-list">
-            <div class="player-level-selector">
-                <label for="player-one">Player Level:</label>
-                <select name="players" class="player-lvl" id="player-one">
+            <div className="player-level-selector">
+                <label htmlFor="player-one">Player Level:</label>
+                <select name="players" className="player-lvl" id="player-one">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
