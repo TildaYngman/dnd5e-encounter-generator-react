@@ -1,12 +1,32 @@
 import React, { useState, useEffect, useReducer } from "react";
-import { Header, PlayerSelect, PartyList, MonsterToggle, PlayerSummary, EncounterSummary } from "./components";
-
+import { Header, PlayerSelect, PartyList, MonsterToggle, PlayerSummary, EncounterSummary, Loading } from "./components";
+import { fetchAllMonsters } from "./api";
 
 
 function App() {
+  const[loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  // const [monsters, setMonsters] = useState([]);
+
+  useEffect(() => {
+    fetchAllMonsters()
+    .then((response) => console.log(response))
+    .then(() => setLoading(false))
+    .catch(setError)
+  }, []);
+
+  useEffect(() => {
+    if (!loading) {
+      console.log("Loading screen removed")
+    }
+  }, [loading]);
+
+  if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>
+
   return (
     <>
       <Header />
+      <Loading />
       <main>
         <section id="players-section">
           <div id="players-top">
@@ -31,12 +51,6 @@ function App() {
         </section>
       </main>
     </>
-          
-    //   <footer>
-    //   </footer>
-    //     <script type="module" src="./scripts/main.js"></script>  
-    // </body>
-    // </html>
   );
 }
 

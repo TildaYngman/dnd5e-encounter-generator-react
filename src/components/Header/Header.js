@@ -1,4 +1,3 @@
-// import "../../styles/css/Header.css";
 import banner from "../../assets/images/title_image.png"
 
 function Header() {
