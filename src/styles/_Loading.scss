@@ -1,0 +1,59 @@
+@import 'variables', 'fonts';
+
+#loading-screen{
+    margin-top: calc(max(1.5vh, 10px));
+    margin-bottom: calc(max(1.5vh, 10px));
+    margin-left: calc(max(1vw, 10px));
+    margin-right: calc(max(1vw, 10px));
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    display: block;
+    z-index: 1;
+    display: flex;
+    border-radius: 25px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1{
+      font-size: $huge-text;
+    }
+    img{
+      width: 75%;
+      max-width: 720px;
+      max-height: 600px;
+      min-width: 120px;
+      min-height: 100px;
+    }
+  }
+  @media only screen and (max-width: 760px) {
+    #loading-screen {
+      h1 {
+        font-size: $very-large-text;
+      }
+    }
+  }
+  @media only screen and (max-width: 400px) {
+    #loading-screen {
+      h1 {
+        font-size: $large-text;
+      }
+    }
+  }
+  @media only screen and (max-width: 300px) {
+    #loading-screen {
+      h1 {
+        font-size: $medium-large-text;
+      }
+    }
+  }
+  @media only screen and (max-height: 550px) {
+    #loading-screen {
+      img {
+        width: 30%;
+      }
+    }
+  }

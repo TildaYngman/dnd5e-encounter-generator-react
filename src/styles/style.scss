@@ -1,4 +1,4 @@
-@import 'Header', 'App', 'variables', 'fonts';
+@import 'App', 'Header', 'PlayerSection', 'EncounterSection', 'MonsterSection', 'Loading', 'variables', 'fonts';
 
 html {
     overflow: scroll;
@@ -50,3 +50,19 @@ html {
       }
     }
   }
+
+  body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main{
+    height: 75vh;
+    width: 100vw;
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: row;
+  }
+
