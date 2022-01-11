@@ -1,0 +1,147 @@
+@import 'variables', 'fonts';
+
+#monsters-section{
+    height: 95%;
+    width: 38vw;
+    min-width: 100px;
+    padding: 0;
+    background-color: transparent;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    .monster-content{
+      padding: 0;
+      display: none;
+      overflow: hidden;
+      background-color: #f1f1f1;
+      li{
+        list-style-type: none;
+      }
+      p{
+        margin: 0;
+      }
+      h3{
+        font-weight: normal;
+        font-size: $medium-text;
+      }
+      @media only screen and (max-width: 760px) {
+        h3 {
+          font-size: $very-small-text; 
+        }
+      }
+    }
+    .monster-item{
+        padding: 5px 18px;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        cursor: pointer;
+        background-color: rgba(241, 200, 89, 0.507);
+        p{
+            font-size: 13px;
+        }
+        @media only screen and (max-width: 760px) {
+            p {
+                font-size: $very-small-text; 
+            }
+        }
+        .monster-summary{
+            height: 100%;
+            width: 70%;
+        }
+        .add-monster-section{
+            height: 100%;
+            width: 30%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            button{
+                font-size: 12px;
+                padding: 0.5px;
+            }
+            @media only screen and (max-width: 760px) {
+                button {
+                    font-size: $very-small-text;
+                }
+            }
+        }
+    }
+    .monster-item:hover{
+        background-color: rgba(243, 196, 66, 0.726);
+    }
+}
+@media only screen and (max-width: 760px) {
+  main {
+    #monsters-section{
+      position: absolute;
+      height: 45vh;
+      width: 44vw;
+      top: 26.5vh;
+      transform: translateX(-800px); //Default setting on page load
+      transition: all .5s ease-in-out;
+    }
+  }
+}
+
+.visible {
+    transform: translateX(0px) !important;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+    background-color: rgba(206, 144, 30, 0.582);
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: $medium-large-text;
+}
+@media only screen and (max-width: 760px) {
+    .collapsible {
+        font-size: $small-text; 
+        background-color: rgba(206, 144, 30, 1);
+    }
+}
+@media only screen and (max-width: 445px) {
+    .collapsible {
+        font-size: $very-small-text; 
+    }
+}
+  
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+    background-color: rgba(102, 73, 19, 0.726);
+}
+@media only screen and (max-width: 760px) {
+    .active, .collapsible:hover {
+        background-color: rgba(102, 73, 19, 1);
+        color: $white;
+    }
+}
+
+.collapsible:after {
+content: '\02795'; /* Unicode character for "plus" sign (+) */
+font-size: $small-text;
+color: white;
+float: right;
+margin-left: 5px;
+}
+@media only screen and (max-width: 760px) {
+    .collapsible:after {
+        font-size: $tiny-text; 
+    }
+}
+@media only screen and (max-width: 400px) {
+    .collapsible:after {
+        content: '';
+    }
+}
+
+.active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+}

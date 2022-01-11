@@ -1,0 +1,680 @@
+@font-face {
+  font-family: 'texgyrebonum';
+  src: url("../../assets/fonts/texgyrebonum/texgyrebonum.eot");
+  /* IE9 Compat Modes */
+  src: url("../../assets/fonts/texgyrebonum/texgyrebonum.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/texgyrebonum/texgyrebonum.woff2") format("woff2"), url("../../assets/fonts/texgyrebonum/texgyrebonum.woff") format("woff"), url("../../assets/fonts/texgyrebonum/texgyrebonum.ttf") format("truetype"), url("../../assets/fonts/texgyrebonum/texgyrebonum.svg#texgyrebonum") format("svg");
+  /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+
+#header {
+  height: 25vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#header #banner {
+  height: 60%;
+  width: 100vw;
+  background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#header #banner img {
+  max-width: 1000px;
+  width: 95%;
+}
+
+#header #difficulty-meter {
+  height: 40%;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: transparent;
+}
+
+#header #difficulty-meter h2 {
+  display: inline-block;
+  text-align: center;
+  font-size: 1.563rem;
+}
+
+@media only screen and (max-width: 760px) {
+  #header #difficulty-meter h2 {
+    font-size: 1rem;
+  }
+}
+
+@font-face {
+  font-family: 'texgyrebonum';
+  src: url("../../assets/fonts/texgyrebonum/texgyrebonum.eot");
+  /* IE9 Compat Modes */
+  src: url("../../assets/fonts/texgyrebonum/texgyrebonum.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/texgyrebonum/texgyrebonum.woff2") format("woff2"), url("../../assets/fonts/texgyrebonum/texgyrebonum.woff") format("woff"), url("../../assets/fonts/texgyrebonum/texgyrebonum.ttf") format("truetype"), url("../../assets/fonts/texgyrebonum/texgyrebonum.svg#texgyrebonum") format("svg");
+  /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+
+#players-section {
+  height: 100%;
+  width: 24vw;
+  min-width: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-width: 0 2px 0 0;
+  border-style: solid;
+  border-color: #8A624A;
+}
+
+#players-section #players-top {
+  height: 70%;
+  width: 100%;
+  padding: 15px 15px 10px 15px;
+  background-color: transparent;
+  border-width: 0 0 2px 0;
+  border-style: solid;
+  border-color: #8A624A;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#players-section #players-top .player-level-selector {
+  margin-top: 5px;
+}
+
+#players-section #players-top #player-select {
+  height: 10%;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+#players-section #players-top #party-list {
+  height: 80%;
+  width: 100%;
+}
+
+#players-section #players-top #monster-toggle {
+  height: 5%;
+  text-align: center;
+  width: 100%;
+  font-size: 0.625rem;
+}
+
+#players-section #players-top #monster-toggle #toggle-monsters-btn {
+  background-color: transparent;
+  border-style: none;
+  font-size: 0.625rem;
+}
+
+@media only screen and (min-width: 760px) {
+  #players-section #players-top #monster-toggle #toggle-monsters-btn {
+    display: none;
+  }
+}
+
+#players-section #players-bottom {
+  height: 30%;
+  min-height: 75px;
+  width: 100%;
+  padding: 15px;
+  background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+#players-section #players-bottom p {
+  margin-bottom: 5px;
+}
+
+#players-section #players-bottom #player-summary-left {
+  width: 50%;
+  text-align: left;
+}
+
+#players-section #players-bottom #player-summary-right {
+  width: 50%;
+  text-align: right;
+}
+
+@media only screen and (max-width: 760px) {
+  #players-section {
+    width: 50vw;
+  }
+}
+
+@font-face {
+  font-family: 'texgyrebonum';
+  src: url("../../assets/fonts/texgyrebonum/texgyrebonum.eot");
+  /* IE9 Compat Modes */
+  src: url("../../assets/fonts/texgyrebonum/texgyrebonum.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/texgyrebonum/texgyrebonum.woff2") format("woff2"), url("../../assets/fonts/texgyrebonum/texgyrebonum.woff") format("woff"), url("../../assets/fonts/texgyrebonum/texgyrebonum.ttf") format("truetype"), url("../../assets/fonts/texgyrebonum/texgyrebonum.svg#texgyrebonum") format("svg");
+  /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+
+#encounter-section {
+  height: 100%;
+  width: 38vw;
+  min-width: 100px;
+  margin-right: 10px;
+  font-size: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#encounter-section #encounter-top {
+  height: 70%;
+  width: 100%;
+  padding: 15px 15px 0 25px;
+  overflow: scroll;
+  background-color: transparent;
+  border-width: 0 0 2px 0;
+  border-style: solid;
+  border-color: #8A624A;
+}
+
+#encounter-section #encounter-top .encounter-list-item {
+  height: auto;
+  width: 100%;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#encounter-section #encounter-top .encounter-list-item .encounter-list-left {
+  height: 100%;
+  width: 50%;
+  text-align: left;
+}
+
+#encounter-section #encounter-top .encounter-list-item .encounter-list-center {
+  height: 100%;
+  width: 15%;
+  text-align: center;
+}
+
+#encounter-section #encounter-top .encounter-list-item .encounter-list-right {
+  height: 100%;
+  width: 30%;
+  text-align: right;
+}
+
+#encounter-section #encounter-top .encounter-list-item .encounter-list-close {
+  height: 100%;
+  width: 5%;
+  margin-right: 10px;
+  content: "\2715";
+  /* Unicode character for "plus" sign (+) */
+  cursor: pointer;
+}
+
+#encounter-section #encounter-bottom {
+  height: 30%;
+  min-height: 75px;
+  width: 100%;
+  padding: 15px;
+  background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+#encounter-section #encounter-bottom p {
+  margin-bottom: 5px;
+}
+
+#encounter-section #encounter-bottom #encounter-summary-left {
+  width: 50%;
+  text-align: left;
+}
+
+#encounter-section #encounter-bottom #encounter-summary-right {
+  width: 50%;
+  text-align: right;
+}
+
+@media only screen and (max-width: 760px) {
+  #encounter-section {
+    width: 50vw;
+    font-size: 0.625rem;
+  }
+}
+
+@font-face {
+  font-family: 'texgyrebonum';
+  src: url("../../assets/fonts/texgyrebonum/texgyrebonum.eot");
+  /* IE9 Compat Modes */
+  src: url("../../assets/fonts/texgyrebonum/texgyrebonum.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/texgyrebonum/texgyrebonum.woff2") format("woff2"), url("../../assets/fonts/texgyrebonum/texgyrebonum.woff") format("woff"), url("../../assets/fonts/texgyrebonum/texgyrebonum.ttf") format("truetype"), url("../../assets/fonts/texgyrebonum/texgyrebonum.svg#texgyrebonum") format("svg");
+  /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+
+#monsters-section {
+  height: 95%;
+  width: 38vw;
+  min-width: 100px;
+  padding: 0;
+  background-color: transparent;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#monsters-section .monster-content {
+  padding: 0;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+#monsters-section .monster-content li {
+  list-style-type: none;
+}
+
+#monsters-section .monster-content p {
+  margin: 0;
+}
+
+#monsters-section .monster-content h3 {
+  font-weight: normal;
+  font-size: 0.875rem;
+}
+
+@media only screen and (max-width: 760px) {
+  #monsters-section .monster-content h3 {
+    font-size: 0.563rem;
+  }
+}
+
+#monsters-section .monster-item {
+  padding: 5px 18px;
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  cursor: pointer;
+  background-color: rgba(241, 200, 89, 0.507);
+}
+
+#monsters-section .monster-item p {
+  font-size: 13px;
+}
+
+@media only screen and (max-width: 760px) {
+  #monsters-section .monster-item p {
+    font-size: 0.563rem;
+  }
+}
+
+#monsters-section .monster-item .monster-summary {
+  height: 100%;
+  width: 70%;
+}
+
+#monsters-section .monster-item .add-monster-section {
+  height: 100%;
+  width: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#monsters-section .monster-item .add-monster-section button {
+  font-size: 12px;
+  padding: 0.5px;
+}
+
+@media only screen and (max-width: 760px) {
+  #monsters-section .monster-item .add-monster-section button {
+    font-size: 0.563rem;
+  }
+}
+
+#monsters-section .monster-item:hover {
+  background-color: rgba(243, 196, 66, 0.726);
+}
+
+@media only screen and (max-width: 760px) {
+  main #monsters-section {
+    position: absolute;
+    height: 45vh;
+    width: 44vw;
+    top: 26.5vh;
+    -webkit-transform: translateX(-800px);
+            transform: translateX(-800px);
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+  }
+}
+
+.visible {
+  -webkit-transform: translateX(0px) !important;
+          transform: translateX(0px) !important;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  background-color: rgba(206, 144, 30, 0.582);
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 0.938rem;
+}
+
+@media only screen and (max-width: 760px) {
+  .collapsible {
+    font-size: 0.625rem;
+    background-color: #ce901e;
+  }
+}
+
+@media only screen and (max-width: 445px) {
+  .collapsible {
+    font-size: 0.563rem;
+  }
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: rgba(102, 73, 19, 0.726);
+}
+
+@media only screen and (max-width: 760px) {
+  .active, .collapsible:hover {
+    background-color: #664913;
+    color: #EEEEEE;
+  }
+}
+
+.collapsible:after {
+  content: '\02795';
+  /* Unicode character for "plus" sign (+) */
+  font-size: 0.625rem;
+  color: white;
+  float: right;
+  margin-left: 5px;
+}
+
+@media only screen and (max-width: 760px) {
+  .collapsible:after {
+    font-size: 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .collapsible:after {
+    content: '';
+  }
+}
+
+.active:after {
+  content: "\2796";
+  /* Unicode character for "minus" sign (-) */
+}
+
+@font-face {
+  font-family: 'texgyrebonum';
+  src: url("../../assets/fonts/texgyrebonum/texgyrebonum.eot");
+  /* IE9 Compat Modes */
+  src: url("../../assets/fonts/texgyrebonum/texgyrebonum.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/texgyrebonum/texgyrebonum.woff2") format("woff2"), url("../../assets/fonts/texgyrebonum/texgyrebonum.woff") format("woff"), url("../../assets/fonts/texgyrebonum/texgyrebonum.ttf") format("truetype"), url("../../assets/fonts/texgyrebonum/texgyrebonum.svg#texgyrebonum") format("svg");
+  /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+
+#loading-screen {
+  margin-top: calc(max(1.5vh, 10px));
+  margin-bottom: calc(max(1.5vh, 10px));
+  margin-left: calc(max(1vw, 10px));
+  margin-right: calc(max(1vw, 10px));
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  display: block;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 25px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#loading-screen h1 {
+  font-size: 3.125rem;
+}
+
+#loading-screen img {
+  width: 75%;
+  max-width: 720px;
+  max-height: 600px;
+  min-width: 120px;
+  min-height: 100px;
+}
+
+@media only screen and (max-width: 760px) {
+  #loading-screen h1 {
+    font-size: 1.563rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #loading-screen h1 {
+    font-size: 1.25rem;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  #loading-screen h1 {
+    font-size: 0.938rem;
+  }
+}
+
+@media only screen and (max-height: 550px) {
+  #loading-screen img {
+    width: 30%;
+  }
+}
+
+@font-face {
+  font-family: 'texgyrebonum';
+  src: url("../../assets/fonts/texgyrebonum/texgyrebonum.eot");
+  /* IE9 Compat Modes */
+  src: url("../../assets/fonts/texgyrebonum/texgyrebonum.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/texgyrebonum/texgyrebonum.woff2") format("woff2"), url("../../assets/fonts/texgyrebonum/texgyrebonum.woff") format("woff"), url("../../assets/fonts/texgyrebonum/texgyrebonum.ttf") format("truetype"), url("../../assets/fonts/texgyrebonum/texgyrebonum.svg#texgyrebonum") format("svg");
+  /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+  background-image: url("../../assets/images/paper-background.jpg");
+  background-blend-mode: lighten;
+  background-size: cover;
+  font-size: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */
+}
+
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: texgyrebonum;
+}
+
+* p {
+  color: #000000;
+  font-size: 0.938rem;
+}
+
+* h1 {
+  font-size: 3.75rem;
+}
+
+* select {
+  font-size: 0.938rem;
+}
+
+* label {
+  font-size: 0.938rem;
+}
+
+@media only screen and (max-width: 760px) {
+  * p {
+    font-size: 0.625rem;
+  }
+  * select {
+    font-size: 0.625rem;
+  }
+  * label {
+    font-size: 0.625rem;
+  }
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main {
+  height: 75vh;
+  width: 100vw;
+  padding: 10px 10px 10px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+/*# sourceMappingURL=style.css.map */

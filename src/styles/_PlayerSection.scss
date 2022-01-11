@@ -1,0 +1,80 @@
+@import 'variables', 'fonts';
+
+#players-section{
+    height: 100%;
+    width: 24vw;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    border-width: 0 2px 0 0;
+    border-style: solid;
+    border-color: $border-color;
+    #players-top{
+      height: 70%;
+      width: 100%;
+      padding: 15px 15px 10px 15px;
+      background-color: transparent;
+      border-width: 0 0 2px 0;
+      border-style: solid;
+      border-color: $border-color;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .player-level-selector{
+        margin-top: 5px;
+      }
+      #player-select{
+        height: 10%;
+        width: 100%;
+        margin-bottom: 15px;
+      }
+      #party-list{
+        height: 80%;
+        width: 100%;
+      }
+      #monster-toggle{
+        height: 5%;
+        text-align: center;
+        width: 100%;
+        font-size: $small-text;
+        #toggle-monsters-btn {
+          background-color: transparent;
+          border-style: none;
+          font-size: $small-text;
+        }
+        @media only screen and (min-width: 760px) {
+          #toggle-monsters-btn {
+            display: none;
+          }
+        }
+      }
+    }
+    #players-bottom{
+      height: 30%;
+      min-height: 75px;
+      width: 100%;
+      padding: 15px;
+      background-color: transparent;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      p{
+        margin-bottom: 5px;
+      }
+      #player-summary-left{
+        width: 50%;
+        text-align: left;
+      }
+      #player-summary-right{
+        width: 50%;
+        text-align: right;
+      }
+    }
+}
+@media only screen and (max-width: 760px) {
+    #players-section {
+        width: 50vw;
+    }
+}
