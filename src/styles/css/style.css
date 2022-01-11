@@ -84,4 +84,62 @@
   font-weight: normal;
   font-style: normal;
 }
+
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+  background-image: url("../../assets/images/paper-background.jpg");
+  background-blend-mode: lighten;
+  background-size: cover;
+  font-size: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */
+}
+
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: texgyrebonum;
+}
+
+* p {
+  color: #000000;
+  font-size: 0.938rem;
+}
+
+* h1 {
+  font-size: 3.75rem;
+}
+
+* select {
+  font-size: 0.938rem;
+}
+
+* label {
+  font-size: 0.938rem;
+}
+
+@media only screen and (max-width: 760px) {
+  * p {
+    font-size: 0.625rem;
+  }
+  * select {
+    font-size: 0.625rem;
+  }
+  * label {
+    font-size: 0.625rem;
+  }
+}
 /*# sourceMappingURL=style.css.map */

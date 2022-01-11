@@ -1,1 +1,52 @@
 @import 'Header', 'App', 'variables', 'fonts';
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+    background-image: url('../../assets/images/paper-background.jpg');
+    background-blend-mode: lighten;
+    background-size: cover;
+    font-size: 100%;
+  }
+  ::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+  }
+  /* Optional: show position indicator in red */
+  ::-webkit-scrollbar-thumb {
+    background: #FF0000;
+  }
+  
+  //General styling
+  * {
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $texgyrebonum;
+    p {
+      color: $black;
+      font-size: $medium-large-text; 
+    }
+    h1 {
+      font-size: $banner-text;
+    }
+    select {
+      font-size: $medium-large-text;
+    }
+    label {
+      font-size: $medium-large-text;
+    }
+  }
+  @media only screen and (max-width: 760px) {
+    * {
+      p {
+        font-size: $small-text; 
+      }
+      select {
+        font-size: $small-text;
+      }
+      label {
+        font-size: $small-text;
+      }
+    }
+  }
