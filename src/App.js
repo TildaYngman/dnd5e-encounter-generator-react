@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useReducer } from "react";
-import { Header, PlayerSelect, PartyList, MonsterToggle, PlayerSummary } from "./components";
+import { Header, PlayerSelect, PartyList, MonsterToggle, PlayerSummary, EncounterSummary } from "./components";
 
 
 
@@ -18,43 +18,20 @@ function App() {
             <PlayerSummary />
           </div>
         </section>
+        <section id="encounter-section">
+          <div id="encounter-top">
+            
+          </div>
+          <div id="encounter-bottom">
+            <EncounterSummary />
+          </div>
+        </section>
+        <section id="monsters-section">
+
+        </section>
       </main>
     </>
           
-
- 
-
-   
-
- 
-
-    //         </div>
-
-    //       </section>
-
-
-    //       <section id="encounter-section">
-    //         <div id="encounter-top">
-
-    //         </div>
-    //         <div id="encounter-bottom">
-    //             <div id="encounter-summary-left">
-    //               <p>Sum: </p>
-    //               <p>Multiplier: </p>
-    //               <p>XP: </p>
-    //             </div>
-    //             <div id="encounter-summary-right">
-    //               <p>-</p>
-    //               <p>-</p>
-    //               <p>-</p>
-    //             </div>
-    //         </div>
-    //         </div>
-    //       </section>
-    //       <section id="monsters-section">
-    //       </section>
-    //       </section>
-    //   </main>
     //   <footer>
     //   </footer>
     //     <script type="module" src="./scripts/main.js"></script>  
