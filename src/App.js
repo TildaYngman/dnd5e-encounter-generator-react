@@ -2,26 +2,31 @@ import React, { useState, useEffect, useReducer } from "react";
 import { Header, PlayerSelect, PartyList, MonsterToggle, PlayerSummary, EncounterSummary, Loading } from "./components";
 import { fetchAllMonsters } from "./api";
 
+function hideLoadingScreen() {
+  document.getElementById("loading-screen").style.display = "none";
+}
+
 
 function App() {
   const[loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  // const [monsters, setMonsters] = useState([]);
+  // const [error, setError] = useState(null);
+  let monsters = [];
 
   useEffect(() => {
     fetchAllMonsters()
-    .then((response) => console.log(response))
+    .then((response) => monsters = response)
+    .then(() => console.log(monsters))
     .then(() => setLoading(false))
-    .catch(setError)
+    // .catch(setError)
   }, []);
 
   useEffect(() => {
     if (!loading) {
-      console.log("Loading screen removed")
+      hideLoadingScreen();
     }
   }, [loading]);
 
-  if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>
+  // if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>
 
   return (
     <>
