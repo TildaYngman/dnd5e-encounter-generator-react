@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useReducer } from "react";
-import { Header, PlayerSelect, PartyList, MonsterToggle, PlayerSummary, EncounterSummary, Loading } from "./components";
+import { Header, PlayerSelect, PartyList, MonsterToggle, PlayerSummary, EncounterSummary, Loading, MonsterCollapsibles } from "./components";
 import { fetchAllMonsters } from "./api";
+import { renderMonsters, hideLoadingScreen, addEventListenersToCollapsibles } from "./scripts/rendering"
+import { render } from "@testing-library/react";
 
-function hideLoadingScreen() {
-  document.getElementById("loading-screen").style.display = "none";
-}
 
+
+//MOVE TO EXTERNAL JS FILE
 
 function App() {
   const[loading, setLoading] = useState(true);
@@ -16,6 +17,7 @@ function App() {
     fetchAllMonsters()
     .then((response) => monsters = response)
     .then(() => console.log(monsters))
+    .then(() => renderMonsters(monsters))
     .then(() => setLoading(false))
     // .catch(setError)
   }, []);
@@ -25,6 +27,12 @@ function App() {
       hideLoadingScreen();
     }
   }, [loading]);
+
+  useEffect(() => {
+    addEventListenersToCollapsibles();
+  }, []);
+
+  //USEEFFECT FOR RENDER PLAYER LIST
 
   // if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>
 
@@ -51,31 +59,11 @@ function App() {
             <EncounterSummary />
           </div>
         </section>
-        <section id="monsters-section">
-
-        </section>
+        <MonsterCollapsibles />
       </main>
     </>
   );
 }
 
 export default App;
-
-
-
-
-
-// const [loading, setLoading] = useState([true]);
-
-// useEffect(() => {
-//   fetchAllMonsters()
-//   .then((res) => setLoading(false));
-// }, []);
-
-// useEffect(() => {
-//   if (!setLoading){
-
-//   }
-// }, [loading]);
-
 
