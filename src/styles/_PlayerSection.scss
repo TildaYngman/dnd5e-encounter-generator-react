@@ -1,6 +1,6 @@
 @import 'variables', 'fonts';
 
-#players-section{
+#player-section{
     height: 100%;
     width: 24vw;
     min-width: 100px;
@@ -9,7 +9,7 @@
     border-width: 0 2px 0 0;
     border-style: solid;
     border-color: $border-color;
-    #players-top{
+    #player-top{
       height: 70%;
       width: 100%;
       padding: 15px 15px 10px 15px;
@@ -51,7 +51,7 @@
         }
       }
     }
-    #players-bottom{
+    #player-bottom{
       height: 30%;
       min-height: 75px;
       width: 100%;
@@ -74,7 +74,7 @@
     }
 }
 @media only screen and (max-width: 760px) {
-    #players-section {
+    #player-section {
         width: 50vw;
     }
 }

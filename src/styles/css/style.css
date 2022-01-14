@@ -85,7 +85,7 @@
   font-style: normal;
 }
 
-#players-section {
+#player-section {
   height: 100%;
   width: 24vw;
   min-width: 100px;
@@ -101,7 +101,7 @@
   border-color: #8A624A;
 }
 
-#players-section #players-top {
+#player-section #player-top {
   height: 70%;
   width: 100%;
   padding: 15px 15px 10px 15px;
@@ -123,41 +123,41 @@
           justify-content: space-between;
 }
 
-#players-section #players-top .player-level-selector {
+#player-section #player-top .player-level-selector {
   margin-top: 5px;
 }
 
-#players-section #players-top #player-select {
+#player-section #player-top #player-select {
   height: 10%;
   width: 100%;
   margin-bottom: 15px;
 }
 
-#players-section #players-top #party-list {
+#player-section #player-top #party-list {
   height: 80%;
   width: 100%;
 }
 
-#players-section #players-top #monster-toggle {
+#player-section #player-top #monster-toggle {
   height: 5%;
   text-align: center;
   width: 100%;
   font-size: 0.625rem;
 }
 
-#players-section #players-top #monster-toggle #toggle-monsters-btn {
+#player-section #player-top #monster-toggle #toggle-monsters-btn {
   background-color: transparent;
   border-style: none;
   font-size: 0.625rem;
 }
 
 @media only screen and (min-width: 760px) {
-  #players-section #players-top #monster-toggle #toggle-monsters-btn {
+  #player-section #player-top #monster-toggle #toggle-monsters-btn {
     display: none;
   }
 }
 
-#players-section #players-bottom {
+#player-section #player-bottom {
   height: 30%;
   min-height: 75px;
   width: 100%;
@@ -175,22 +175,22 @@
           justify-content: space-evenly;
 }
 
-#players-section #players-bottom p {
+#player-section #player-bottom p {
   margin-bottom: 5px;
 }
 
-#players-section #players-bottom #player-summary-left {
+#player-section #player-bottom #player-summary-left {
   width: 50%;
   text-align: left;
 }
 
-#players-section #players-bottom #player-summary-right {
+#player-section #player-bottom #player-summary-right {
   width: 50%;
   text-align: right;
 }
 
 @media only screen and (max-width: 760px) {
-  #players-section {
+  #player-section {
     width: 50vw;
   }
 }

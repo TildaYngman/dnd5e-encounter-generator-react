@@ -1,4 +1,4 @@
-function PlayerSummary() {
+export default function PlayerSummary() {
     return (
         <>
             <div id="player-summary-left">
@@ -13,8 +13,6 @@ function PlayerSummary() {
                 <p id="hard-xp">75XP</p>
                 <p id="deadly-xp">100XP</p>
             </div>
-      </>
+        </>
     );
-  }
-  
-  export default PlayerSummary;
+}

@@ -1,4 +1,3 @@
-import EncounterTop from "./EncounterTop";
-import EncounterBottom from "./EncounterBottom";
+import EncounterSection from "./EncounterSection";
 
-export { EncounterTop, EncounterBottom };
+export default EncounterSection;

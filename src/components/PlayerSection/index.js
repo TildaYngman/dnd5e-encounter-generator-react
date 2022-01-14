@@ -1,4 +1,3 @@
-import PlayersBottom from "./PlayersBottom";
-import PlayersTop from "./PlayersTop";
+import PlayerSection from "./PlayerSection";
 
-export { PlayersBottom, PlayersTop };
+export default PlayerSection;

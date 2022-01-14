@@ -1,1 +1,1 @@
-export { default } from "./MonsterCollapsibles";
+export { default } from "./MonsterSection";

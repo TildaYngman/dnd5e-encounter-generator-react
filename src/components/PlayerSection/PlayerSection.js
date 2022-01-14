@@ -1,11 +1,13 @@
-function PlayersSection() {
+import PlayerBottom from "./PlayerBottom";
+import PlayerTop from "./PlayerTop";
+
+export default function PlayerSection() {
     return (
-    <section id="players-section">
-        <PlayersTop />
-        <PlayersBottom />
+    <section id="player-section">
+        <PlayerTop />
+        <PlayerBottom />
     </section>
     );
-  }
-  
-  export default PlayersSection;
+}
+
 
