@@ -2,15 +2,16 @@ import React, { useState, useEffect, useReducer } from "react";
 import { Header, PlayerSelect, PartyList, MonsterToggle, PlayerSummary, EncounterSummary, Loading, MonsterCollapsibles } from "./components";
 import { fetchAllMonsters } from "./api";
 import { renderMonsters, hideLoadingScreen, addEventListenersToCollapsibles } from "./scripts/rendering"
-import { render } from "@testing-library/react";
-
-
-
-//MOVE TO EXTERNAL JS FILE
 
 function App() {
+  
   const[loading, setLoading] = useState(true);
-  // const [error, setError] = useState(null);
+  const [numPlayers, setNumPlayers] = useState(1);
+
+
+  //NEED TO USE EXTEND TO PASS THE STATE BETWEEN APP AND COMPONENETS
+  // const [handleChange] = this.useState
+
   let monsters = [];
 
   useEffect(() => {
@@ -19,7 +20,6 @@ function App() {
     .then(() => console.log(monsters))
     .then(() => renderMonsters(monsters))
     .then(() => setLoading(false))
-    // .catch(setError)
   }, []);
 
   useEffect(() => {
@@ -32,10 +32,6 @@ function App() {
     addEventListenersToCollapsibles();
   }, []);
 
-  //USEEFFECT FOR RENDER PLAYER LIST
-
-  // if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>
-
   return (
     <>
       <Header />
@@ -44,7 +40,7 @@ function App() {
         <section id="players-section">
           <div id="players-top">
             <PlayerSelect />
-            <PartyList />
+            <PartyList numPlayers={numPlayers}/>
             <MonsterToggle />
           </div>
           <div id="players-bottom">
