@@ -10,11 +10,13 @@ class PlayerSelect extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
   }
+
   handleChange() {
     this.setState({
         numPlayers: document.getElementById("number-of-players").value,
     });
   }
+
   render() {
     return (
       <>
@@ -31,10 +33,7 @@ class PlayerSelect extends React.Component {
               <option value="8">Eight</option>
             </select>
         </div>
-        <PartyList 
-          // handleChange={this.handleChange}
-          numPlayers={this.state.numPlayers}
-        />
+        <PartyList numPlayers={this.state.numPlayers} />
       </>
     );
   }
