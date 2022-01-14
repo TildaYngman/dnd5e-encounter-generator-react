@@ -1,4 +1,4 @@
-function EncounterSummary() {
+export default function EncounterSummary() {
     return (
         <>
             <div id="encounter-summary-left">
@@ -13,6 +13,4 @@ function EncounterSummary() {
             </div>
       </>
     );
-  }
-  
-  export default EncounterSummary;
+}
