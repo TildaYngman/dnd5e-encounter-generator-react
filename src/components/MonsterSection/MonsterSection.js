@@ -1,5 +1,5 @@
 
-function MonsterCollapsibles(props) {
+function MonsterSection(props) {
     const highestCr = 30;
     const lowestCr = 0;
     const emptyCat1 = 28;
@@ -33,7 +33,7 @@ function MonsterCollapsibles(props) {
     );
 }
 
-export default MonsterCollapsibles;
+export default MonsterSection;
 
 
 

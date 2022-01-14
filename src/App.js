@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useReducer } from "react";
-import { Header, PlayerSelect, MonsterToggle, PlayerSummary, EncounterSummary, Loading, MonsterCollapsibles } from "./components";
+import { Header, Loading, PlayerSection, EncounterSection, MonsterSection } from "./components";
 import { fetchAllMonsters } from "./api";
 import { renderMonsters, hideLoadingScreen, addEventListenersToCollapsibles } from "./scripts/rendering"
 
@@ -37,24 +37,9 @@ function App() {
       <Header />
       <Loading />
       <main>
-        <section id="players-section">
-          <div id="players-top">
-            <PlayerSelect />
-            <MonsterToggle />
-          </div>
-          <div id="players-bottom">
-            <PlayerSummary />
-          </div>
-        </section>
-        <section id="encounter-section">
-          <div id="encounter-top">
-            
-          </div>
-          <div id="encounter-bottom">
-            <EncounterSummary />
-          </div>
-        </section>
-        <MonsterCollapsibles />
+        <PlayerSection />
+        <EncounterSection />
+        <MonsterSection />
       </main>
     </>
   );
