@@ -9,7 +9,7 @@ export default function PartyList(props) {
     rows.push(
     <div className="player-level-selector" key={"selector-" + i}>
       <label htmlFor={"player-" + numPlayersString}>Player Level:</label>
-      <select name="players" className="player-lvl" id={"player-" + numPlayersString}>
+      <select name="players" className="player-lvl" id={"player-" + numPlayersString} onChange={props.handleLevelChange}>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>

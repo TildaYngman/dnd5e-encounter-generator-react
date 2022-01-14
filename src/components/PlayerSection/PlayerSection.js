@@ -1,11 +1,11 @@
 import PlayerBottom from "./PlayerBottom";
 import PlayerTop from "./PlayerTop";
 
-export default function PlayerSection() {
+export default function PlayerSection(props) {
     return (
     <section id="player-section">
-        <PlayerTop />
-        <PlayerBottom />
+        <PlayerTop {...props} />
+        <PlayerBottom {...props} />
     </section>
     );
 }

@@ -1,9 +1,9 @@
 import PlayerSummary from "./PlayerSummary";
 
-export default function PlayerBottom() {
+export default function PlayerBottom(props) {
     return (
         <div id="player-bottom">
-            <PlayerSummary />
+            <PlayerSummary {...props} />
         </div>
     );
 }

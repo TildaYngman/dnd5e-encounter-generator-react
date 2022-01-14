@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useReducer } from "react";
-import { Header, Loading, PlayerSection, EncounterSection, MonsterSection } from "./components";
+import { Header, Loading } from "./components";
+import Content from "./Content"
 import { fetchAllMonsters } from "./api";
 import { renderMonsters, hideLoadingScreen, addEventListenersToCollapsibles } from "./scripts/rendering"
 
@@ -37,9 +38,7 @@ function App() {
       <Header />
       <Loading />
       <main>
-        <PlayerSection />
-        <EncounterSection />
-        <MonsterSection />
+        <Content monsters={monsters} />
       </main>
     </>
   );

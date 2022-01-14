@@ -1,4 +1,4 @@
-export default function PlayerSummary() {
+export default function PlayerSummary(props) {
     return (
         <>
             <div id="player-summary-left">
@@ -8,10 +8,10 @@ export default function PlayerSummary() {
                 <p>Deadly: </p>
             </div>
             <div id="player-summary-right">
-                <p id="easy-xp">25XP</p>
-                <p id="medium-xp">50XP</p>
-                <p id="hard-xp">75XP</p>
-                <p id="deadly-xp">100XP</p>
+                <p id="easy-xp">{props.xpThresholds[0] + 'XP'}</p>
+                <p id="medium-xp">{props.xpThresholds[1] + 'XP'}</p>
+                <p id="hard-xp">{props.xpThresholds[2] + 'XP'}</p>
+                <p id="deadly-xp">{props.xpThresholds[3] + 'XP'}</p>
             </div>
         </>
     );
