@@ -6,8 +6,7 @@ import { convertCrToXp,
   convertNumPlayersToString,
   addListener,
   calculateMultiplier,
-  calculateXpValues,
-  setDifficultyMessage } from "./tools"
+  calculateXpValues } from "./tools"
   
 
 export function renderMonsters(props, id) {
@@ -125,224 +124,47 @@ export function generateEncounterList(props) {
 }
 
 
-// function updateEncounterList() {
-//     document.getElementById("encounter-top").innerHTML = "";
-  
-//     for (let i = 0; i < encounterArray.length; i++) {
-//       const xpToInt = parseInt(encounterArray[i].xp);
-//       renderEncounterList(
-//         i,
-//         encounterArray[i].name,
-//         encounterArray[i].count,
-//         xpToInt
-//       );
-//     }
-//     for (let i = 0; i < encounterArray.length; i++) {
-//       addListener("click", `close-${i}`, removeFromEncounter, `${i}`);
-//     }
-//     updateMonsterSummary();
-//   }
-  
-//   function renderEncounterList(i, name, count, XP) {
-//     document.getElementById("encounter-top").innerHTML += `
+////////////////////////////////Difficulty Indicator//////////////////////////////
 
-//     `;
-//   }
+export function updateDifficultyIndicator(props) {
+  const multiplier = calculateMultiplier(props.monsterCount);
+  console.log(props.xpThresholds);
 
+  const finalTotal = props.xpTotal * multiplier;
 
+  if (props.encounter.length == 0) {
+    return <h2>Add some monsters to begin!</h2>;
+  }
 
+  if (props.encounter.length > 0) {
+    return setDifficultyMessage(props, finalTotal);
+  }
+}
 
+function setDifficultyMessage(props, finalTotal) {
+  const easyXp = props.xpThresholds[0];
+  const mediumXp = props.xpThresholds[1];
+  const hardXp = props.xpThresholds[2];
+  const deadlyXp = props.xpThresholds[3];
 
+  const difficultyThresholds = [
+    easyXp,
+    mediumXp,
+    hardXp,
+    deadlyXp
+  ];
 
+  difficultyThresholds.sort((a, b) => {
+    return Math.abs(finalTotal - a) - Math.abs(finalTotal - b);
+  })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //--Global Variables
-  
-  // let monsterArray = [];
-  // let encounterArray = [];
-  
-  // let keyStats = {
-  //   xpTotal: 0,
-  //   monsterCount: 0,
-  // };
-  
-  // async function fetchMonsters(Url) {
-  //   const response = await fetch(`${Url}monsters/?limit=2000`);
-  //   const data = await response.json();
-  //   return data.results;
-  // }
-  
-  // async function initApp() {
-  //   const monsters = await fetchMonsters(defaultApiUrl);
-  //   console.log("initApp ", monsters);
-  //   monsterArray = monsters;
-  //   renderMonsters(monsters);
-  //   hideLoadingScreen();
-  // }
-  
-  //--Event Listeners
-  // document.addEventListener("DOMContentLoaded", function () {
-    
-  //   renderPlayerList();
-  //   initApp();
-  // });
-  
-  // addListener("change", "number-of-players", renderPlayerList);
-  // addListener("change", "player-one", updateXpThresholds);
-  
-  // //////////////////////////////Render Page//////////////////////////////
-  // function hideMonstersSection(){
-  //   document.getElementById("monsters-section").classList.remove('visible');
-  //   document.getElementById("toggle-monsters-btn").innerHTML = ">> Show Monsters >>";
-  // };
-  
-  // function showMonstersSection(){
-  //   document.getElementById("monsters-section").classList.add('visible');
-  //   document.getElementById("toggle-monsters-btn").innerHTML = "<< Hide Monsters <<";
-  // };
-  
-  // document.getElementById("toggle-monsters-btn").addEventListener('click', () => {
-  //   if(!document.getElementById("monsters-section").classList.contains('visible')) {
-  //     showMonstersSection();
-  //   } else {
-  //     hideMonstersSection();
-  //   }
-  // });
-  
-  // //////////////////////////////Encounter Section//////////////////////////////
-  
-  // function addToEncounter(name) {
-  //   const monsters = monsterArray;
-  
-  //   for (let monster of monsters) {
-  //     if (name == monster.name) {
-  //       const xp = convertCrToXp(monster.challenge_rating);
-  //       keyStats.xpTotal += xp;
-  //       keyStats.monsterCount++;
-  
-  //       if (encounterArray.length == 0) {
-  //         addEntry(name, xp);
-  //         break;
-  //       }
-  
-  //       let monsterExists = false;
-  
-  //       for (let entry of encounterArray) {
-  //         if (name == entry.name) {
-  //           entry.count++;
-  //           monsterExists = true;
-  //         }
-  //       }
-  
-  //       if (!monsterExists) {
-  //         addEntry(name, xp);
-  //       }
-  //     }
-  //   }
-  //   updateEncounterList();
-  // }
-  
-  // function addEntry(name, xp) {
-  //   encounterArray.push({
-  //     name: name,
-  //     xp: xp,
-  //     count: 1,
-  //   });
-  // }
-  
-  // function removeFromEncounter(i) {
-  //   keyStats.xpTotal -= encounterArray[i].xp;
-  //   keyStats.monsterCount--;
-  //   encounterArray[i].count--;
-  //   if (encounterArray[i].count == 0) {
-  //     encounterArray.splice(i, 1);
-  //   }
-  //   updateEncounterList();
-  // }
-  
-  // function updateEncounterList() {
-  //   document.getElementById("encounter-top").innerHTML = "";
-  
-  //   for (let i = 0; i < encounterArray.length; i++) {
-  //     const xpToInt = parseInt(encounterArray[i].xp);
-  //     renderEncounterList(
-  //       i,
-  //       encounterArray[i].name,
-  //       encounterArray[i].count,
-  //       xpToInt
-  //     );
-  //   }
-  //   for (let i = 0; i < encounterArray.length; i++) {
-  //     addListener("click", `close-${i}`, removeFromEncounter, `${i}`);
-  //   }
-  //   updateMonsterSummary();
-  // }
-  
-  // function renderEncounterList(i, name, count, XP) {
-  //   document.getElementById("encounter-top").innerHTML += `
-  //     <div class="encounter-list-item">
-  //       <div id="close-${i}" class="encounter-list-close">
-  //       &#10005;
-  //       </div>
-  //       <div class="encounter-list-left">
-  //         ${name} 
-  //       </div>
-  //       <div class="encounter-list-center">
-  //         x ${count}
-  //       </div>
-  //       <div class="encounter-list-right">
-  //         ${XP * count}xp
-  //       </div>
-  //     </div>
-  //   `;
-  // }
-  
-  // function updateMonsterSummary() {
-  //   const multiplier = calculateMultiplier(keyStats.monsterCount);
-  
-  //   if (encounterArray.length == 0) {
-  //     document.getElementById("encounter-summary-right").innerHTML = `
-  //     <p>-</p>
-  //     <p>-</p>
-  //     <p>-</p>
-  //   `;
-  //   } else {
-  //     document.getElementById("encounter-summary-right").innerHTML = `
-  //     <p>${keyStats.xpTotal}XP</p>
-  //     <p>x${multiplier}</p>
-  //     <p>${keyStats.xpTotal * multiplier}XP</p>
-  //   `;
-  //   }
-  //   updateDifficultyIndicator();
-  // }
-  
-  // //////////////////////////////Difficulty Indicator//////////////////////////////
-  
-  // function updateDifficultyIndicator() {
-  //   const multiplier = calculateMultiplier(keyStats.monsterCount);
-  
-  //   const finalTotal = keyStats.xpTotal * multiplier;
-  //   if (encounterArray.length == 0) {
-  //     document.getElementById("difficulty-meter").innerHTML = `
-  //       <h2>Add some monsters to begin!</h2>
-  //     `;
-  //   }
-  //   if (encounterArray.length > 0) {
-  //     setDifficultyMessage(finalTotal);
-  //   }
-  // }
-  
-
-  
+  if (difficultyThresholds[0] == easyXp) {
+    return <h2>This encounter will be <span style={{ color: 'green' }}>EASY</span> for your players!</h2>;
+  } else if (difficultyThresholds[0] == mediumXp) {
+    return <h2>This encounter will be of <span style={{ color: 'yellow' }}>MEDIUM</span> difficulty for your players!</h2>;
+  } else if (difficultyThresholds[0] == hardXp) {
+    return <h2>This encounter will be <span style={{ color: 'orange' }}>HARD</span> for your players!</h2>;
+  } else if (difficultyThresholds[0] == deadlyXp) {
+    return <h2>This encounter will be <span style={{ color: 'red' }}>DEADLY</span> for your players!</h2>;
+  }
+}

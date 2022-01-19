@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { PlayerSection, EncounterSection, MonsterSection } from "./components";
+import { PlayerSection, EncounterSection, MonsterSection, Header } from "./components";
 import { calculateXpValues, convertCrToXp } from "./scripts/tools";
 
 export default class Content extends React.Component {
@@ -99,23 +99,31 @@ export default class Content extends React.Component {
   render() {
     return (
       <>
-        <PlayerSection 
-          handlePlayerChange={this.handlePlayerChange}
-          handleLevelChange={this.handleLevelChange}
-          numPlayers={this.state.numPlayers}
+        <Header 
           xpThresholds={this.state.xpThresholds}
-        />
-        <EncounterSection
           encounter={this.state.encounter}
           monsterCount={this.state.monsterCount}
           xpTotal={this.state.xpTotal}
-          handleRemoveFromEncounter={this.handleRemoveFromEncounter}
         />
-        <MonsterSection 
-          monsters={this.props.monsters}
-          handleAddToEncounter={this.handleAddToEncounter}
-          encounter={this.state.encounter}
-        />
+        <main>
+          <PlayerSection 
+            handlePlayerChange={this.handlePlayerChange}
+            handleLevelChange={this.handleLevelChange}
+            numPlayers={this.state.numPlayers}
+            xpThresholds={this.state.xpThresholds}
+          />
+          <EncounterSection
+            encounter={this.state.encounter}
+            monsterCount={this.state.monsterCount}
+            xpTotal={this.state.xpTotal}
+            handleRemoveFromEncounter={this.handleRemoveFromEncounter}
+          />
+          <MonsterSection 
+            monsters={this.props.monsters}
+            handleAddToEncounter={this.handleAddToEncounter}
+            encounter={this.state.encounter}
+          />
+        </main>
       </>
     );
   }

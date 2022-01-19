@@ -12,23 +12,15 @@ function App() {
     fetchAllMonsters()
     .then((response) => setMonsters(response))
     .then(() => setLoading(false))
-    // .then(addEventListenersToCollapsibles())
   }, []);
-
-  // useEffect(() => {
-  //   ;
-  // }, []);
 
   return (
     <>
-      <Header />
-      <main>
         {loading ? (
           <Loading />
         ) : (
           <Content monsters={monsters} />
         )}
-      </main>
     </>
   );
 }
