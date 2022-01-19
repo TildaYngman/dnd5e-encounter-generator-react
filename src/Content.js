@@ -6,8 +6,8 @@ export default class Content extends React.Component {
   constructor() {
     super();
     this.state = {
-        numPlayers: 1,
-        xpThresholds: [25, 50, 75, 100]
+      numPlayers: 1,
+      xpThresholds: [25, 50, 75, 100]
     };
     this.handlePlayerChange = this.handlePlayerChange.bind(this);
     this.handleLevelChange = this.handleLevelChange.bind(this);
@@ -15,9 +15,9 @@ export default class Content extends React.Component {
 
   handlePlayerChange() {
     this.setState({
-        numPlayers: document.getElementById("number-of-players").value,
+      numPlayers: document.getElementById("number-of-players").value,
     }, () => { 
-        this.handleLevelChange();
+      this.handleLevelChange();
     });
   }
 
@@ -26,7 +26,7 @@ export default class Content extends React.Component {
     const xpThresholds = calculateXpValues(playerLevels);
   
     this.setState({
-        xpThresholds: xpThresholds,
+      xpThresholds: xpThresholds,
     });
 
     // updateDifficultyIndicator();
@@ -36,10 +36,10 @@ export default class Content extends React.Component {
     return (
       <>
         <PlayerSection 
-            handlePlayerChange={this.handlePlayerChange}
-            handleLevelChange={this.handleLevelChange}
-            numPlayers={this.state.numPlayers}
-            xpThresholds={this.state.xpThresholds}
+          handlePlayerChange={this.handlePlayerChange}
+          handleLevelChange={this.handleLevelChange}
+          numPlayers={this.state.numPlayers}
+          xpThresholds={this.state.xpThresholds}
         />
         <EncounterSection />
         <MonsterSection />
