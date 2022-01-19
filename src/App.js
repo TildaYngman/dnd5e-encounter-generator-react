@@ -9,10 +9,6 @@ function App() {
   const[loading, setLoading] = useState(true);
   const [numPlayers, setNumPlayers] = useState(1);
 
-
-  //NEED TO USE EXTEND TO PASS THE STATE BETWEEN APP AND COMPONENETS
-  // const [handleChange] = this.useState
-
   let monsters = [];
 
   useEffect(() => {
