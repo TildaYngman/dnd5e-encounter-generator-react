@@ -38,7 +38,7 @@ export function addEventListenersToCollapsibles() {
   }
 }
 
-// //////////////////////////////Player Section//////////////////////////////
+////////////////////////////////Player Section//////////////////////////////
 
 export function updatePlayerList(numPlayers) {
   let rows = [];
@@ -97,12 +97,57 @@ export function updateXpThresholds() {
 }
 
 
+////////////////////////////////Encounter Section//////////////////////////////
+
+export function generateEncounterList(props) {
+  const rows = [];
+  for (let i = 0; i < props.encounter.length; i++) {
+    const xp = parseInt(props.encounter[i].xp);
+
+    rows.push(
+    <div key={"encounter-" + i} className="encounter-list-item">
+      <div className="encounter-list-close" id={"close-" + i} onClick={() => props.handleRemoveFromEncounter(i)}>
+        &#10005;
+      </div>
+      <div className="encounter-list-left">
+        {props.encounter[i].name}
+      </div>
+      <div className="encounter-list-center">
+        x {props.encounter[i].count}
+      </div>
+      <div className="encounter-list-right">
+        {xp * props.encounter[i].count}xp
+      </div>
+    </div>
+    );
+  }
+  return rows;
+}
 
 
+// function updateEncounterList() {
+//     document.getElementById("encounter-top").innerHTML = "";
+  
+//     for (let i = 0; i < encounterArray.length; i++) {
+//       const xpToInt = parseInt(encounterArray[i].xp);
+//       renderEncounterList(
+//         i,
+//         encounterArray[i].name,
+//         encounterArray[i].count,
+//         xpToInt
+//       );
+//     }
+//     for (let i = 0; i < encounterArray.length; i++) {
+//       addListener("click", `close-${i}`, removeFromEncounter, `${i}`);
+//     }
+//     updateMonsterSummary();
+//   }
+  
+//   function renderEncounterList(i, name, count, XP) {
+//     document.getElementById("encounter-top").innerHTML += `
 
-
-
-
+//     `;
+//   }
 
 
 

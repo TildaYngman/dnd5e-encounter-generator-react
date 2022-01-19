@@ -15,7 +15,7 @@ export default class Content extends React.Component {
     this.handlePlayerChange = this.handlePlayerChange.bind(this);
     this.handleLevelChange = this.handleLevelChange.bind(this);
     this.handleAddToEncounter = this.handleAddToEncounter.bind(this);
-    // this.handleRemoveFromEncounter = this.handleRemoveFromEncounter.bind(this);
+    this.handleRemoveFromEncounter = this.handleRemoveFromEncounter.bind(this);
   }
 
   handlePlayerChange() {
@@ -70,8 +70,6 @@ export default class Content extends React.Component {
               xp: xp,
               count: 1
               }]
-            }, () => {
-              console.log(this.state);
             });
           } 
         }
@@ -80,15 +78,22 @@ export default class Content extends React.Component {
     }
   }
 
-  handleRemoveFromEncounter() {
-    // const playerLevels = document.querySelectorAll(".player-lvl");
-    // const xpThresholds = calculateXpValues(playerLevels);
-  
-    // this.setState({
-    //   xpThresholds: xpThresholds,
-    // });
+  handleRemoveFromEncounter(i) {
+    let tempArray = this.state.encounter;
+    this.setState({ 
+      xpTotal: this.state.xpTotal - tempArray[i].xp,
+      monsterCount: this.state.monsterCount - 1
+    });
 
-    // updateDifficultyIndicator();
+    tempArray[i].count--;
+    if (tempArray[i].count == 0) {
+      tempArray.splice(i, 1);
+    }
+
+    this.setState({
+      encounter: tempArray,
+    });
+    // updateEncounterList();
   }
 
   render() {
@@ -100,7 +105,8 @@ export default class Content extends React.Component {
           numPlayers={this.state.numPlayers}
           xpThresholds={this.state.xpThresholds}
         />
-        <EncounterSection 
+        <EncounterSection
+          encounter={this.state.encounter}
           handleRemoveFromEncounter={this.handleRemoveFromEncounter}
           encounter={this.state.encounter}
         />
