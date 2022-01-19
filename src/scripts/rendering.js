@@ -16,7 +16,7 @@ export function renderMonsters(props, id) {
     const xp = convertCrToXp(cr);
 
     if (cr == id) {      
-        rows.push(<div className="monster-item" key={"wrapper-" + monster.name}><div className="monster-summary"><h3>{monster.name}</h3><p>CR: {cr} - XP: {xp}</p></div><div className="add-monster-section"><button id={monster.name+"-btn"} onClick={() => props.handleAddToEncounter(monster.name, props.monsters)}>Add</button></div></div>);
+        rows.push(<div className="monster-item" key={"wrapper-" + monster.name}><div className="monster-summary"><h3>{monster.name}</h3><p>CR: {monster.challenge_rating} - XP: {xp}</p></div><div className="add-monster-section"><button id={monster.name+"-btn"} onClick={() => props.handleAddToEncounter(monster.name, props.monsters)}>Add</button></div></div>);
     }
   }
   return rows;
@@ -80,19 +80,6 @@ export function updatePlayerList(numPlayers) {
     );
   }
   // updateXpThresholds();
-}
-
-export function updateXpThresholds() {
-  // const playerLevels = document.querySelectorAll(".player-lvl");
-  // const xpThresholds = calculateXpValues(playerLevels);
-  // document.getElementById("player-summary-right").innerHTML = `
-  //   <p id="easy-xp">${xpThresholds.easyXpThreshold}XP</p>
-  //   <p id="medium-xp">${xpThresholds.mediumXpThreshold}XP</p>
-  //   <p id="hard-xp">${xpThresholds.hardXpThreshold}XP</p>
-  //   <p id="deadly-xp">${xpThresholds.deadlyXpThreshold}XP</p>
-  // `;
-  console.log("Need to do updateXpThresholds")
-  // updateDifficultyIndicator();
 }
 
 
