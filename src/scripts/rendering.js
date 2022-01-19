@@ -12,30 +12,15 @@ import { convertCrToXp,
 
 export function renderMonsters(props, id) {
   let rows = [];
-
   for (const monster of props.monsters) {
     const cr = formatCrAsIdString(monster.challenge_rating);
     const xp = convertCrToXp(cr);
 
     if (cr == id) {      
-        rows.push(<div className="monster-item" key={"wrapper-" + monster.name}><div className="monster-summary"><h3>{monster.name}</h3><p>CR: {cr} - XP: {xp}</p></div><div className="add-monster-section"><button id={monster.name+"-btn"} onClick={props.handleAddToEncounter(monster.name)}>Add</button></div></div>);
+        rows.push(<div className="monster-item" key={"wrapper-" + monster.name}><div className="monster-summary"><h3>{monster.name}</h3><p>CR: {cr} - XP: {xp}</p></div><div className="add-monster-section"><button id={monster.name+"-btn"} onClick={() => props.handleAddToEncounter(monster.name, props.monsters)}>Add</button></div></div>);
     }
   }
   return rows;
-}
-
-export function handleMonsterClick(id) {
-  document.getElementById(id).classList.toggle("active");
-  const content = document.getElementById(id).nextElementSibling;
-  if (content.style.display === "block") {
-    content.style.display = "none";
-  } else {
-    content.style.display = "block";
-  }
-}
-  
-export function hideLoadingScreen() {
-  document.getElementById("loading-screen").style.display = "none";
 }
 
 export function addEventListenersToCollapsibles() {
@@ -52,7 +37,6 @@ export function addEventListenersToCollapsibles() {
     });
   }
 }
-  
 
 // //////////////////////////////Player Section//////////////////////////////
 

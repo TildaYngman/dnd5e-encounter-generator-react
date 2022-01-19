@@ -1,19 +1,21 @@
 import React, { useEffect } from "react";
 import { PlayerSection, EncounterSection, MonsterSection } from "./components";
-import { calculateXpValues } from "./scripts/tools";
+import { calculateXpValues, convertCrToXp } from "./scripts/tools";
 
 export default class Content extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       numPlayers: 1,
       xpThresholds: [25, 50, 75, 100],
-      encounter: []
+      encounter: [],
+      xpTotal: 0,
+      monsterCount: 0
     };
     this.handlePlayerChange = this.handlePlayerChange.bind(this);
     this.handleLevelChange = this.handleLevelChange.bind(this);
     this.handleAddToEncounter = this.handleAddToEncounter.bind(this);
-    this.handleRemoveFromEncounter = this.handleRemoveFromEncounter.bind(this);
+    // this.handleRemoveFromEncounter = this.handleRemoveFromEncounter.bind(this);
   }
 
   handlePlayerChange() {
@@ -35,54 +37,47 @@ export default class Content extends React.Component {
     // updateDifficultyIndicator();
   }
 
-  handleAddToEncounter(name) {
-  //   function addToEncounter(name) {
-  //   const monsters = monsterArray;
-  
-  //   for (let monster of monsters) {
-  //     if (name == monster.name) {
-  //       const xp = convertCrToXp(monster.challenge_rating);
-  //       keyStats.xpTotal += xp;
-  //       keyStats.monsterCount++;
-  
-  //       if (encounterArray.length == 0) {
-  //         addEntry(name, xp);
-  //         break;
-  //       }
-  
-  //       let monsterExists = false;
-  
-  //       for (let entry of encounterArray) {
-  //         if (name == entry.name) {
-  //           entry.count++;
-  //           monsterExists = true;
-  //         }
-  //       }
-  
-  //       if (!monsterExists) {
-  //         addEntry(name, xp);
-  //       }
-  //     }
-  //   }
-  //   updateEncounterList();
-  // }
-  
-  // function addEntry(name, xp) {
-  //   encounterArray.push({
-  //     name: name,
-  //     xp: xp,
-  //     count: 1,
-  //   });
-  // }
+  handleAddToEncounter(name, monsters) {
+    for (let monster of monsters) {
+      if (name == monster.name) {
+        const xp = convertCrToXp(monster.challenge_rating);
+        
+        this.setState({
+          xpTotal: this.state.xpTotal + xp,
+          monsterCount: this.state.monsterCount + 1
+        });
 
-    // const playerLevels = document.querySelectorAll(".player-lvl");
-    // const xpThresholds = calculateXpValues(playerLevels);
+        if (this.state.encounter.length == 0) {
+          this.setState({ encounter: [...this.state.encounter, {
+              name: name,
+              xp: xp,
+              count: 1
+            }]
+          });
+          break;
+        }
   
-    // this.setState({
-    //   xpThresholds: xpThresholds,
-    // });
-
-    // updateDifficultyIndicator();
+        for (let i = 0; i < this.state.encounter.length; i++) {
+          if (name == this.state.encounter[i].name) {
+            let tempArray = this.state.encounter;
+            tempArray[i].count++
+            this.setState({ 
+              encounter: tempArray
+            });
+          } else {
+            this.setState({ encounter: [...this.state.encounter, {
+              name: name,
+              xp: xp,
+              count: 1
+              }]
+            }, () => {
+              console.log(this.state);
+            });
+          } 
+        }
+      }
+      //   updateEncounterList(); - should happen automatically when state is updated
+    }
   }
 
   handleRemoveFromEncounter() {
