@@ -107,8 +107,9 @@ export default class Content extends React.Component {
         />
         <EncounterSection
           encounter={this.state.encounter}
+          monsterCount={this.state.monsterCount}
+          xpTotal={this.state.xpTotal}
           handleRemoveFromEncounter={this.handleRemoveFromEncounter}
-          encounter={this.state.encounter}
         />
         <MonsterSection 
           monsters={this.props.monsters}

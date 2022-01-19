@@ -5,24 +5,20 @@ export function addListener(type, id, callback, param){
   }
 
 export function calculateMultiplier(count) {
-  if (count == 1){
-    let multiplier = 1;
-    return multiplier;
+  if (count == 0) {
+    return 0;
+  } else if (count == 1){
+    return 1;
   } else if (count == 2) {
-    let multiplier = 1.5;
-    return multiplier;
+    return 1.5;
   } else if (count >= 3 && count <= 6) {
-    let multiplier = 2;
-    return multiplier;
+    return 2;
   } else if (count >= 7 && count <= 10) {
-    let multiplier = 2.5;
-    return multiplier;
+    return 2.5;
   } else if (count >= 11 && count <= 14) {
-    let multiplier = 3;
-    return multiplier;
+    return 3;
   } else if (count >= 15) {
-    let multiplier = 4;
-    return multiplier;
+    return 4;
   }
 }
 

@@ -5,7 +5,7 @@ export default function EncounterSection(props) {
     return (
         <div id="encounter-section">
             <EncounterTop {...props}/>
-            <EncounterBottom />
+            <EncounterBottom {...props}/>
         </div>
     );
 }
