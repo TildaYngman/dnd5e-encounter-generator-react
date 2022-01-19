@@ -7,7 +7,6 @@ import { renderMonsters, hideLoadingScreen, addEventListenersToCollapsibles } fr
 function App() {
   
   const[loading, setLoading] = useState(true);
-  const [numPlayers, setNumPlayers] = useState(1);
 
   let monsters = [];
 

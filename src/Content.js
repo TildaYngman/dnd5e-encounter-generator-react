@@ -7,10 +7,14 @@ export default class Content extends React.Component {
     super();
     this.state = {
       numPlayers: 1,
-      xpThresholds: [25, 50, 75, 100]
+      xpThresholds: [25, 50, 75, 100],
+      encounter: []
     };
     this.handlePlayerChange = this.handlePlayerChange.bind(this);
     this.handleLevelChange = this.handleLevelChange.bind(this);
+    this.handleAddToEncounter = this.handleAddToEncounter.bind(this);
+    this.handleRemoveFromEncounter = this.handleRemoveFromEncounter.bind(this);
+
   }
 
   handlePlayerChange() {
@@ -41,8 +45,14 @@ export default class Content extends React.Component {
           numPlayers={this.state.numPlayers}
           xpThresholds={this.state.xpThresholds}
         />
-        <EncounterSection />
-        <MonsterSection />
+        <EncounterSection 
+          handleRemoveFromEncounter={this.handleRemoveFromEncounter}
+          encounter={this.state.encounter}
+        />
+        <MonsterSection 
+          handleAddToEncounter={this.handleAddToEncounter}
+          encounter={this.state.encounter}
+        />
       </>
     );
   }
