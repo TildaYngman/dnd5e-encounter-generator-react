@@ -2,38 +2,32 @@ import React, { useState, useEffect, useReducer } from "react";
 import { Header, Loading } from "./components";
 import Content from "./Content"
 import { fetchAllMonsters } from "./api";
-import { renderMonsters, hideLoadingScreen, addEventListenersToCollapsibles } from "./scripts/rendering"
+import { addEventListenersToCollapsibles } from "./scripts/rendering"
 
 function App() {
-  
   const[loading, setLoading] = useState(true);
-
-  let monsters = [];
+  const[monsters, setMonsters] = useState([]);
 
   useEffect(() => {
     fetchAllMonsters()
-    .then((response) => monsters = response)
-    .then(() => console.log(monsters))
-    .then(() => renderMonsters(monsters))
+    .then((response) => setMonsters(response))
     .then(() => setLoading(false))
+    // .then(addEventListenersToCollapsibles())
   }, []);
 
-  useEffect(() => {
-    if (!loading) {
-      hideLoadingScreen();
-    }
-  }, [loading]);
-
-  useEffect(() => {
-    addEventListenersToCollapsibles();
-  }, []);
+  // useEffect(() => {
+  //   ;
+  // }, []);
 
   return (
     <>
       <Header />
-      <Loading />
       <main>
-        <Content monsters={monsters} />
+        {loading ? (
+          <Loading />
+        ) : (
+          <Content monsters={monsters} />
+        )}
       </main>
     </>
   );

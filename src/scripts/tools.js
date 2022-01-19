@@ -208,9 +208,6 @@ export function getXpValueFromPlayerSummary(id) {
   return xpValue;
 }
 
-
-
-
 export function convertCrToXp(cr){
     switch (cr){
       case "0":

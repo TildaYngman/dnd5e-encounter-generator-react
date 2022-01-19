@@ -10,27 +10,27 @@ import { convertCrToXp,
   setDifficultyMessage } from "./tools"
   
 
-export function renderMonsters(monsters) {
-  const coll = document.getElementsByClassName("collapsible");
+export function renderMonsters(props, id) {
+  let rows = [];
 
-  for (let i = 0; i < coll.length; i++) {
-    const id = coll[i].attributes.idref.value;
-    let rows = [];
+  for (const monster of props.monsters) {
+    const cr = formatCrAsIdString(monster.challenge_rating);
+    const xp = convertCrToXp(cr);
 
-    for (const monster of monsters) {
-      const cr = formatCrAsIdString(monster.challenge_rating);
-      const xp = convertCrToXp(cr);
-
-      if (cr == id) {      
-          rows.push(<div className="monster-item" key={"wrapper-" + monster.name}><div className="monster-summary"><h3>{monster.name}</h3><p>CR: {cr} - XP: {xp}</p></div><div className="add-monster-section"><button id={monster.name+"-btn"}>Add</button></div></div>);
-      }
+    if (cr == id) {      
+        rows.push(<div className="monster-item" key={"wrapper-" + monster.name}><div className="monster-summary"><h3>{monster.name}</h3><p>CR: {cr} - XP: {xp}</p></div><div className="add-monster-section"><button id={monster.name+"-btn"} onClick={props.handleAddToEncounter(monster.name)}>Add</button></div></div>);
     }
-    ReactDOM.render(
-      <div>
-        {rows}
-      </div>,
-      document.getElementById("cr-" + id)
-    );
+  }
+  return rows;
+}
+
+export function handleMonsterClick(id) {
+  document.getElementById(id).classList.toggle("active");
+  const content = document.getElementById(id).nextElementSibling;
+  if (content.style.display === "block") {
+    content.style.display = "none";
+  } else {
+    content.style.display = "block";
   }
 }
   
@@ -40,7 +40,6 @@ export function hideLoadingScreen() {
 
 export function addEventListenersToCollapsibles() {
   const coll = document.getElementsByClassName("collapsible");
-
   for (let i = 0; i < coll.length; i++) {
     coll[i].addEventListener("click", function () {
       this.classList.toggle("active");
@@ -54,7 +53,93 @@ export function addEventListenersToCollapsibles() {
   }
 }
   
-  //--Global Variables
+
+// //////////////////////////////Player Section//////////////////////////////
+
+export function updatePlayerList(numPlayers) {
+  let rows = [];
+
+  for (let i = 0; i < numPlayers; i++) {
+    const numPlayersString = convertNumPlayersToString(i + 1);
+
+    rows.push(
+    <div className="player-level-selector" key={"selector-" + i}>
+      <label htmlFor={"player-" + numPlayersString}>Player Level:</label>
+      <select name="players" className="player-lvl" id="player-${numPlayersString}">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+      </select>
+    </div>
+    );
+    ReactDOM.render(
+      <div>
+        {rows}
+      </div>,
+      document.getElementById("party-list")
+    );
+  }
+  // updateXpThresholds();
+}
+
+export function updateXpThresholds() {
+  // const playerLevels = document.querySelectorAll(".player-lvl");
+  // const xpThresholds = calculateXpValues(playerLevels);
+  // document.getElementById("player-summary-right").innerHTML = `
+  //   <p id="easy-xp">${xpThresholds.easyXpThreshold}XP</p>
+  //   <p id="medium-xp">${xpThresholds.mediumXpThreshold}XP</p>
+  //   <p id="hard-xp">${xpThresholds.hardXpThreshold}XP</p>
+  //   <p id="deadly-xp">${xpThresholds.deadlyXpThreshold}XP</p>
+  // `;
+  console.log("Need to do updateXpThresholds")
+  // updateDifficultyIndicator();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //--Global Variables
   
   // let monsterArray = [];
   // let encounterArray = [];
@@ -106,75 +191,6 @@ export function addEventListenersToCollapsibles() {
   //     hideMonstersSection();
   //   }
   // });
-  
-
-
-  
-  // //////////////////////////////Player Section//////////////////////////////
-  
-  export function updatePlayerList(numPlayers) {
-    let rows = [];
-
-    for (let i = 0; i < numPlayers; i++) {
-      const numPlayersString = convertNumPlayersToString(i + 1);
-  
-      rows.push(
-      <div className="player-level-selector" key={"selector-" + i}>
-        <label htmlFor={"player-" + numPlayersString}>Player Level:</label>
-        <select name="players" className="player-lvl" id="player-${numPlayersString}">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-        </select>
-      </div>
-      );
-      ReactDOM.render(
-        <div>
-          {rows}
-        </div>,
-        document.getElementById("party-list")
-      );
-    }
-    // for (let i = 0; i < numPlayers; i++) {
-    //   const numPlayersString = convertNumPlayersToString(i + 1);
-    //   addListener("change", `player-${numPlayersString}`, updateXpThresholds);
-    // }
-    updateXpThresholds();
-  }
-  
-  function renderLevelSelectorsList(numPlayers) {
-    
-  }
-  
-  export function updateXpThresholds() {
-    // const playerLevels = document.querySelectorAll(".player-lvl");
-    // const xpThresholds = calculateXpValues(playerLevels);
-    // document.getElementById("player-summary-right").innerHTML = `
-    //   <p id="easy-xp">${xpThresholds.easyXpThreshold}XP</p>
-    //   <p id="medium-xp">${xpThresholds.mediumXpThreshold}XP</p>
-    //   <p id="hard-xp">${xpThresholds.hardXpThreshold}XP</p>
-    //   <p id="deadly-xp">${xpThresholds.deadlyXpThreshold}XP</p>
-    // `;
-    console.log("Need to do updateXpThresholds")
-    // updateDifficultyIndicator();
-  }
   
   // //////////////////////////////Encounter Section//////////////////////////////
   
@@ -299,31 +315,5 @@ export function addEventListenersToCollapsibles() {
   //   }
   // }
   
-
-
-
-
-
-
-
-
-
-
-
-//EXPORTING
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   
