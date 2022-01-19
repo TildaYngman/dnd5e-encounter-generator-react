@@ -1,11 +1,11 @@
 import EncounterTop from "./EncounterTop";
 import EncounterBottom from "./EncounterBottom";
 
-export default function EncounterSection() {
+export default function EncounterSection(props) {
     return (
         <div id="encounter-section">
-            <EncounterTop />
-            <EncounterBottom />
+            <EncounterTop {...props}/>
+            <EncounterBottom {...props}/>
         </div>
     );
 }

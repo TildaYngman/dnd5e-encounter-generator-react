@@ -1,29 +1,41 @@
+import { renderMonsters, addEventListenersToCollapsibles } from "../../scripts/rendering";
+import React, { useState, useEffect } from "react";
 
 function MonsterSection(props) {
+    const[listenersCreated, setListenersCreated] = useState(false);
+
+    useEffect(() => {
+        if (!listenersCreated){
+            addEventListenersToCollapsibles();
+            setListenersCreated(true);
+        }
+     });
+    
     const highestCr = 30;
     const lowestCr = 0;
     const emptyCat1 = 28;
     const emptyCat2 = 29;
 
+
     let rows = [];
 
     for (let i = 0; i <= highestCr; i++) {
         if (i == lowestCr) {
-            rows.push(<button type="button" key={"cr-" + i} idref={i} className="collapsible">Challenge Rating {i}</button>)  
-            rows.push(<div id={"cr-" + i} key={"collapsibleDiv" + i} className="monster-content"></div>)
+            rows.push(<button type="button" key={"cr-" + i} idref={i} id={"cr-" + i + "-btn"} className="collapsible">Challenge Rating {i}</button>)  
+            rows.push(<div id={"cr-" + i} key={"collapsibleDiv" + i} className="monster-content">{renderMonsters(props, i)}</div>)
 
             rows.push(<button type="button" key={"cr-" + "eighth"} idref="eighth" className="collapsible">Challenge Rating 1/8</button>)
-            rows.push(<div id="cr-eighth" key={"collapsibleDiv" + "Eighth"} className="monster-content"></div>)
-            
+            rows.push(<div id="cr-eighth" key={"collapsibleDiv" + "Eighth"} className="monster-content">{renderMonsters(props, "eighth")}</div>)
+
             rows.push(<button type="button" key={"cr-" + "quarter"} idref="quarter" className="collapsible">Challenge Rating 1/4</button>)
-            rows.push(<div id="cr-quarter" key={"collapsibleDiv" + "Quarter"} className="monster-content"></div>)
-            
+            rows.push(<div id="cr-quarter" key={"collapsibleDiv" + "Quarter"} className="monster-content">{renderMonsters(props, "quarter")}</div>)
+
             rows.push(<button type="button" key={"cr-" + "half"} idref="half" className="collapsible">Challenge Rating 1/2</button>)
-            rows.push(<div id="cr-half" key={"collapsibleDiv" + "Half"} className="monster-content"></div>)
+            rows.push(<div id="cr-half" key={"collapsibleDiv" + "Half"} className="monster-content">{renderMonsters(props, "half")}</div>)
         } 
         if (i != lowestCr && i != emptyCat1 && i != emptyCat2) {
             rows.push(<button type="button" key={"cr-" + i} idref={i} className="collapsible">Challenge Rating {i}</button>)
-            rows.push(<div id={"cr-" + i} key={"collapsibleDiv" + i} className="monster-content"></div>)
+            rows.push(<div id={"cr-" + i} key={"collapsibleDiv" + i} className="monster-content">{renderMonsters(props, i)}</div>)
         }  
     }
     return (
@@ -34,8 +46,5 @@ function MonsterSection(props) {
 }
 
 export default MonsterSection;
-
-
-
 
 

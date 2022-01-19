@@ -1,9 +1,9 @@
 import EncounterSummary from "./EncounterSummary";
 
-export default function EncounterBottom() {
+export default function EncounterBottom(props) {
     return (
         <div id="encounter-bottom">
-            <EncounterSummary />
+            <EncounterSummary {...props}/>
         </div>
     );
 }
