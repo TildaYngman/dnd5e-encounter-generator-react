@@ -33,8 +33,6 @@ export default class Content extends React.Component {
     this.setState({
       xpThresholds: xpThresholds,
     });
-
-    // updateDifficultyIndicator();
   }
 
   handleAddToEncounter(name, monsters) {
@@ -93,7 +91,6 @@ export default class Content extends React.Component {
     this.setState({
       encounter: tempArray,
     });
-    // updateEncounterList();
   }
 
   render() {
