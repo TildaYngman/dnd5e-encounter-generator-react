@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useReducer } from "react";
-import { Header, Loading } from "./components";
+import React, { useState, useEffect } from "react";
+import { Loading } from "./components";
 import Content from "./Content"
 import { fetchAllMonsters } from "./api";
-import { addEventListenersToCollapsibles } from "./scripts/rendering"
 
 function App() {
   const[loading, setLoading] = useState(true);

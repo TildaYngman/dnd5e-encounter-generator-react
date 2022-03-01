@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { PlayerSection, EncounterSection, MonsterSection, Header } from "./components";
 import { calculateXpValues, convertCrToXp } from "./scripts/tools";
 
