@@ -138,25 +138,6 @@
   width: 100%;
 }
 
-#player-section #player-top #monster-toggle {
-  height: 5%;
-  text-align: center;
-  width: 100%;
-  font-size: 0.625rem;
-}
-
-#player-section #player-top #monster-toggle #toggle-monsters-btn {
-  background-color: transparent;
-  border-style: none;
-  font-size: 0.625rem;
-}
-
-@media only screen and (min-width: 760px) {
-  #player-section #player-top #monster-toggle #toggle-monsters-btn {
-    display: none;
-  }
-}
-
 #player-section #player-bottom {
   height: 30%;
   min-height: 75px;
@@ -508,6 +489,25 @@
 .active:after {
   content: "\2796";
   /* Unicode character for "minus" sign (-) */
+}
+
+#monster-toggle {
+  height: 5%;
+  text-align: center;
+  width: 100%;
+  font-size: 0.625rem;
+}
+
+#monster-toggle #toggle-monsters-btn {
+  background-color: transparent;
+  border-style: none;
+  font-size: 0.625rem;
+}
+
+@media only screen and (min-width: 760px) {
+  #monster-toggle #toggle-monsters-btn {
+    display: none;
+  }
 }
 
 @font-face {
