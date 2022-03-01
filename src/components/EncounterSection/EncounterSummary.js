@@ -10,9 +10,9 @@ export default function EncounterSummary(props) {
                 <p>XP: </p>
             </div>
             <div id="encounter-summary-right">
-                <p>{props.xpTotal + "xp"}</p>
+                <p>{props.xpTotal + "XP"}</p>
                 <p>{"x" + multiplier}</p>
-                <p>{props.xpTotal * multiplier + "xp"}</p>
+                <p>{props.xpTotal * multiplier + "XP"}</p>
             </div>
         </>
     );
