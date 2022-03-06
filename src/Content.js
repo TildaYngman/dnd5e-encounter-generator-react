@@ -1,5 +1,5 @@
 import React from "react";
-import { PlayerSection, EncounterSection, MonsterSection, Header } from "./components";
+import { PlayerSection, EncounterSection, MonsterSection, Header, MonsterToggle } from "./components";
 import { calculateXpValues, convertCrToXp } from "./scripts/tools";
 
 export default class Content extends React.Component {
@@ -102,6 +102,7 @@ export default class Content extends React.Component {
           monsterCount={this.state.monsterCount}
           xpTotal={this.state.xpTotal}
         />
+        <MonsterToggle />
         <main>
           <PlayerSection 
             handlePlayerChange={this.handlePlayerChange}

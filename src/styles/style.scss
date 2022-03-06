@@ -9,12 +9,8 @@ html {
     font-size: 100%;
   }
   ::-webkit-scrollbar {
-    width: 0;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
-  }
-  /* Optional: show position indicator in red */
-  ::-webkit-scrollbar-thumb {
-    background: #FF0000;
+    width: 0;
+    background: transparent;
   }
   
   //General styling

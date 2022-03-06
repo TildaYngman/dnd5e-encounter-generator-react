@@ -138,25 +138,6 @@
   width: 100%;
 }
 
-#player-section #player-top #monster-toggle {
-  height: 5%;
-  text-align: center;
-  width: 100%;
-  font-size: 0.625rem;
-}
-
-#player-section #player-top #monster-toggle #toggle-monsters-btn {
-  background-color: transparent;
-  border-style: none;
-  font-size: 0.625rem;
-}
-
-@media only screen and (min-width: 760px) {
-  #player-section #player-top #monster-toggle #toggle-monsters-btn {
-    display: none;
-  }
-}
-
 #player-section #player-bottom {
   height: 30%;
   min-height: 75px;
@@ -259,6 +240,7 @@
 #encounter-section #encounter-top .encounter-list-item .encounter-list-center {
   height: 100%;
   width: 15%;
+  min-width: 22px;
   text-align: center;
 }
 
@@ -510,6 +492,28 @@
   /* Unicode character for "minus" sign (-) */
 }
 
+#monster-toggle {
+  text-align: center;
+  font-size: 0.625rem;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  position: fixed;
+  bottom: 50vh;
+  right: -35px;
+}
+
+#monster-toggle #toggle-monsters-btn {
+  background-color: transparent;
+  border-style: none;
+  font-size: 0.625rem;
+}
+
+@media only screen and (min-width: 760px) {
+  #monster-toggle #toggle-monsters-btn {
+    display: none;
+  }
+}
+
 @font-face {
   font-family: 'texgyrebonum';
   src: url("../../assets/fonts/texgyrebonum/texgyrebonum.eot");
@@ -606,14 +610,7 @@ html {
 
 ::-webkit-scrollbar {
   width: 0;
-  /* Remove scrollbar space */
   background: transparent;
-  /* Optional: just make scrollbar invisible */
-}
-
-/* Optional: show position indicator in red */
-::-webkit-scrollbar-thumb {
-  background: #FF0000;
 }
 
 * {

@@ -9,6 +9,8 @@ import { convertCrToXp,
   calculateXpValues } from "./tools"
   
 
+////////////////////////////////Monster Section//////////////////////////////
+
 export function renderMonsters(props, id) {
   let rows = [];
   for (const monster of props.monsters) {
@@ -35,6 +37,10 @@ export function addEventListenersToCollapsibles() {
       }
     });
   }
+}
+
+export function toggleMonstersSection() {
+  document.getElementById("monsters-section").classList.toggle("visible");
 }
 
 ////////////////////////////////Player Section//////////////////////////////

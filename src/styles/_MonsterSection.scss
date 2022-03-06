@@ -145,3 +145,22 @@ margin-left: 5px;
 .active:after {
     content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
+
+#monster-toggle{
+    text-align: center;
+    font-size: $small-text;
+    transform: rotate(-90deg);
+    position: fixed;
+    bottom: 50vh;
+    right: -35px;
+    #toggle-monsters-btn {
+        background-color: transparent;
+        border-style: none;
+        font-size: $small-text;
+    }
+    @media only screen and (min-width: 760px) {
+        #toggle-monsters-btn {
+        display: none;
+        }
+    }
+}
