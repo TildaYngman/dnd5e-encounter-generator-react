@@ -46,6 +46,7 @@ export default class Content extends React.Component {
         });
 
         if (this.state.encounter.length == 0) {
+          console.log("First monster added")
           this.setState({ encounter: [...this.state.encounter, {
               name: name,
               xp: xp,
@@ -54,25 +55,31 @@ export default class Content extends React.Component {
           });
           break;
         }
-  
+
+        let monsterFound = false;
+    
         for (let i = 0; i < this.state.encounter.length; i++) {
           if (name == this.state.encounter[i].name) {
+            console.log("This monster exists")
+            monsterFound = true;
             let tempArray = this.state.encounter;
             tempArray[i].count++
             this.setState({ 
               encounter: tempArray
             });
-          } else {
-            this.setState({ encounter: [...this.state.encounter, {
-              name: name,
-              xp: xp,
-              count: 1
-              }]
-            });
           } 
         }
+
+        if (monsterFound == false) {
+          console.log("Adding new monster")
+          this.setState({ encounter: [...this.state.encounter, {
+            name: name,
+            xp: xp,
+            count: 1
+            }]
+          });
+        }
       }
-      //   updateEncounterList(); - should happen automatically when state is updated
     }
   }
 
