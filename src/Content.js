@@ -102,6 +102,7 @@ export default class Content extends React.Component {
           monsterCount={this.state.monsterCount}
           xpTotal={this.state.xpTotal}
         />
+        <MonsterToggle />
         <main>
           <PlayerSection 
             handlePlayerChange={this.handlePlayerChange}
@@ -120,7 +121,6 @@ export default class Content extends React.Component {
             handleAddToEncounter={this.handleAddToEncounter}
             encounter={this.state.encounter}
           />
-          <MonsterToggle />
         </main>
       </>
     );

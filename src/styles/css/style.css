@@ -493,11 +493,12 @@
 
 #monster-toggle {
   text-align: center;
-  height: 100vh;
   font-size: 0.625rem;
-  z-index: 2;
-  position: absolute;
-  float: left;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  position: fixed;
+  bottom: 50vh;
+  right: -35px;
 }
 
 #monster-toggle #toggle-monsters-btn {

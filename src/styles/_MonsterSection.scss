@@ -147,14 +147,12 @@ margin-left: 5px;
 }
 
 #monster-toggle{
-    // height: 5%;
     text-align: center;
-    height: 100vh;
     font-size: $small-text;
-    // transform: rotate(90deg);
-    z-index: 2;
-    position: absolute;
-    float: left;
+    transform: rotate(-90deg);
+    position: fixed;
+    bottom: 50vh;
+    right: -35px;
     #toggle-monsters-btn {
         background-color: transparent;
         border-style: none;
