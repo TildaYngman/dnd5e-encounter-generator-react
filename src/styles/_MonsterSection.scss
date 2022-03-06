@@ -147,18 +147,22 @@ margin-left: 5px;
 }
 
 #monster-toggle{
-    height: 5%;
+    // height: 5%;
     text-align: center;
-    width: 100%;
+    height: 100vh;
     font-size: $small-text;
+    // transform: rotate(90deg);
+    z-index: 2;
+    position: absolute;
+    float: left;
     #toggle-monsters-btn {
-      background-color: transparent;
-      border-style: none;
-      font-size: $small-text;
+        background-color: transparent;
+        border-style: none;
+        font-size: $small-text;
     }
     @media only screen and (min-width: 760px) {
-      #toggle-monsters-btn {
+        #toggle-monsters-btn {
         display: none;
-      }
+        }
     }
-  }
+}

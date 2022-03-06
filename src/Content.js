@@ -1,5 +1,5 @@
 import React from "react";
-import { PlayerSection, EncounterSection, MonsterSection, Header } from "./components";
+import { PlayerSection, EncounterSection, MonsterSection, Header, MonsterToggle } from "./components";
 import { calculateXpValues, convertCrToXp } from "./scripts/tools";
 
 export default class Content extends React.Component {
@@ -120,6 +120,7 @@ export default class Content extends React.Component {
             handleAddToEncounter={this.handleAddToEncounter}
             encounter={this.state.encounter}
           />
+          <MonsterToggle />
         </main>
       </>
     );
