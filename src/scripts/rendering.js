@@ -85,7 +85,6 @@ export function updatePlayerList(numPlayers) {
       document.getElementById("party-list")
     );
   }
-  // updateXpThresholds();
 }
 
 
@@ -121,7 +120,6 @@ export function generateEncounterList(props) {
 
 export function updateDifficultyIndicator(props) {
   const multiplier = calculateMultiplier(props.monsterCount);
-  console.log(props.xpThresholds);
 
   const finalTotal = props.xpTotal * multiplier;
 
