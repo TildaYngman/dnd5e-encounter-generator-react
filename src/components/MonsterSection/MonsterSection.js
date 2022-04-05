@@ -4,11 +4,11 @@ import React, { useState, useEffect } from "react";
 function MonsterSection(props) {
     const[listenersCreated, setListenersCreated] = useState(false);
 
-    useEffect(() => {
-        if (!listenersCreated){
-            addEventListenersToCollapsibles();
-            setListenersCreated(true); 
-        }
+    useEffect(() => { // eslint-disable-line react-hooks/exhaustive-deps
+        if (!listenersCreated){ // eslint-disable-line react-hooks/exhaustive-deps
+            addEventListenersToCollapsibles(); // eslint-disable-line react-hooks/exhaustive-deps
+            setListenersCreated(true); // eslint-disable-line react-hooks/exhaustive-deps
+        } // eslint-disable-line react-hooks/exhaustive-deps
      }); // eslint-disable-line react-hooks/exhaustive-deps
     
     const highestCr = 30;

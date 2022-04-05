@@ -152,6 +152,12 @@ export function calculateXpValues(playerLevels){
         xpThresholds[2] += 8500;
         xpThresholds[3] += 12700;
         break;
+      default:
+        xpThresholds[0] += 0;
+        xpThresholds[1] += 0;
+        xpThresholds[2] += 0;
+        xpThresholds[3] += 0;
+        break;
     }
   }
   return xpThresholds;
