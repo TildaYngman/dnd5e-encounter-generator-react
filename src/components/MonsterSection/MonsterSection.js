@@ -7,9 +7,9 @@ function MonsterSection(props) {
     useEffect(() => {
         if (!listenersCreated){
             addEventListenersToCollapsibles();
-            setListenersCreated(true); // eslint-disable-line react-hooks/exhaustive-deps
+            setListenersCreated(true); 
         }
-     });
+     }); // eslint-disable-line react-hooks/exhaustive-deps
     
     const highestCr = 30;
     const lowestCr = 0;
