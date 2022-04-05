@@ -4,9 +4,7 @@ import ReactDOM from 'react-dom';
 import { convertCrToXp, 
   formatCrAsIdString, 
   convertNumPlayersToString,
-  addListener,
-  calculateMultiplier,
-  calculateXpValues } from "./tools"
+  calculateMultiplier } from "./tools"
   
 
 ////////////////////////////////Monster Section//////////////////////////////
@@ -17,7 +15,7 @@ export function renderMonsters(props, id) {
     const cr = formatCrAsIdString(monster.challenge_rating);
     const xp = convertCrToXp(cr);
 
-    if (cr == id) {      
+    if (cr === id) {      
         rows.push(<div className="monster-item" key={"wrapper-" + monster.name}><div className="monster-summary"><h3>{monster.name}</h3><p>CR: {monster.challenge_rating} - XP: {xp}</p></div><div className="add-monster-section"><button id={monster.name+"-btn"} onClick={() => props.handleAddToEncounter(monster.name, props.monsters)}>Add</button></div></div>);
     }
   }
@@ -123,7 +121,7 @@ export function updateDifficultyIndicator(props) {
 
   const finalTotal = props.xpTotal * multiplier;
 
-  if (props.encounter.length == 0) {
+  if (props.encounter.length === 0) {
     return <h2>Add some monsters to begin!</h2>;
   }
 
@@ -149,13 +147,13 @@ function setDifficultyMessage(props, finalTotal) {
     return Math.abs(finalTotal - a) - Math.abs(finalTotal - b);
   })
 
-  if (difficultyThresholds[0] == easyXp) {
+  if (difficultyThresholds[0] === easyXp) {
     return <h2>This encounter will be <span style={{ color: 'green' }}>EASY</span> for your players!</h2>;
-  } else if (difficultyThresholds[0] == mediumXp) {
+  } else if (difficultyThresholds[0] === mediumXp) {
     return <h2>This encounter will be of <span style={{ color: 'yellow' }}>MEDIUM</span> difficulty for your players!</h2>;
-  } else if (difficultyThresholds[0] == hardXp) {
+  } else if (difficultyThresholds[0] === hardXp) {
     return <h2>This encounter will be <span style={{ color: 'orange' }}>HARD</span> for your players!</h2>;
-  } else if (difficultyThresholds[0] == deadlyXp) {
+  } else if (difficultyThresholds[0] === deadlyXp) {
     return <h2>This encounter will be <span style={{ color: 'red' }}>DEADLY</span> for your players!</h2>;
   }
 }

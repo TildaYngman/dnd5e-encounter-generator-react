@@ -37,7 +37,7 @@ export default class Content extends React.Component {
 
   handleAddToEncounter(name, monsters) {
     for (let monster of monsters) {
-      if (name == monster.name) {
+      if (name === monster.name) {
         const xp = convertCrToXp(monster.challenge_rating);
         
         this.setState({
@@ -45,7 +45,7 @@ export default class Content extends React.Component {
           monsterCount: this.state.monsterCount + 1
         });
 
-        if (this.state.encounter.length == 0) {
+        if (this.state.encounter.length === 0) {
           console.log("First monster added")
           this.setState({ encounter: [...this.state.encounter, {
               name: name,
@@ -59,7 +59,7 @@ export default class Content extends React.Component {
         let monsterFound = false;
     
         for (let i = 0; i < this.state.encounter.length; i++) {
-          if (name == this.state.encounter[i].name) {
+          if (name === this.state.encounter[i].name) {
             console.log("This monster exists")
             monsterFound = true;
             let tempArray = this.state.encounter;
@@ -70,7 +70,7 @@ export default class Content extends React.Component {
           } 
         }
 
-        if (monsterFound == false) {
+        if (monsterFound === false) {
           console.log("Adding new monster")
           this.setState({ encounter: [...this.state.encounter, {
             name: name,
@@ -91,7 +91,7 @@ export default class Content extends React.Component {
     });
 
     tempArray[i].count--;
-    if (tempArray[i].count == 0) {
+    if (tempArray[i].count === 0) {
       tempArray.splice(i, 1);
     }
 
