@@ -5,11 +5,11 @@ export function addListener(type, id, callback, param){
   }
 
 export function calculateMultiplier(count) {
-  if (count == 0) {
+  if (count === 0) {
     return 0;
-  } else if (count == 1){
+  } else if (count === 1){
     return 1;
-  } else if (count == 2) {
+  } else if (count === 2) {
     return 1.5;
   } else if (count >= 3 && count <= 6) {
     return 2;
@@ -178,19 +178,19 @@ export function setDifficultyMessage(finalTotal) {
 
 console.log(difficultyThresholds[0]);
 
-  if (difficultyThresholds[0] == easyXp) {
+  if (difficultyThresholds[0] === easyXp) {
     diffMeter.innerHTML = `
       <h2>This encounter will be <span style="color: green">EASY</span> for your players!</h2>
     `
-  } else if (difficultyThresholds[0] == mediumXp) {
+  } else if (difficultyThresholds[0] === mediumXp) {
     diffMeter.innerHTML = `
       <h2>This encounter will be of <span style="color: yellow">MEDIUM</span> difficulty for your players!</h2>
     `
-  } else if (difficultyThresholds[0] == hardXp) {
+  } else if (difficultyThresholds[0] === hardXp) {
     diffMeter.innerHTML = `
       <h2>This encounter will be <span style="color: orange">HARD</span> for your players!</h2>
     `
-  } else if (difficultyThresholds[0] == deadlyXp) {
+  } else if (difficultyThresholds[0] === deadlyXp) {
     diffMeter.innerHTML = `
       <h2>This encounter will be <span style="color: red">DEADLY</span> for your players!</h2>
     `
@@ -274,6 +274,8 @@ export function convertCrToXp(cr){
         return 135000;
       case "30":
         return 155000;
+      default:
+        return 0;
     }
   }
   
@@ -295,6 +297,8 @@ export function convertNumPlayersToString(numPlayersInt) {
       return "seven";
     case 8:
       return "eight";
+    default:
+      return 0;
   }
 }
 
