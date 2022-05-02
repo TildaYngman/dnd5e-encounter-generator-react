@@ -15,7 +15,8 @@ export function renderMonsters(props, id) {
     const cr = formatCrAsIdString(monster.challenge_rating);
     const xp = convertCrToXp(cr);
 
-    if (cr === id) {      
+
+    if (cr === id.toString()) {      
         rows.push(<div className="monster-item" key={"wrapper-" + monster.name}><div className="monster-summary"><h3>{monster.name}</h3><p>CR: {monster.challenge_rating} - XP: {xp}</p></div><div className="add-monster-section"><button id={monster.name+"-btn"} onClick={() => props.handleAddToEncounter(monster.name, props.monsters)}>Add</button></div></div>);
     }
   }
