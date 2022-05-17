@@ -4,8 +4,8 @@ export default function Encounter(props) {
     let rows = generateEncounterList(props);
 
     return (
-        <div id="encounter">
+        <section id="encounter">
             {rows}
-        </div>
+        </section>
     );
 }
