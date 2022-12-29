@@ -1,6 +1,7 @@
+import React from "react";
 import { calculateMultiplier } from "../../scripts/tools";
 
-export default function EncounterSummary(props) {
+export default function EncounterSummary(props: { monsterCount: number; xpTotal: number; }) {
     const multiplier = calculateMultiplier(props.monsterCount);
     return (
         <>

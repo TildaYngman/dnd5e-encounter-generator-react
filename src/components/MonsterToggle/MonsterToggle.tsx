@@ -1,3 +1,4 @@
+import React from "react";
 import { toggleMonstersSection } from "../../scripts/rendering";
 
 export default function MonsterToggle() {

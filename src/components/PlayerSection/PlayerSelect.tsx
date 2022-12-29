@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function PlayerSelect(props) {
+export default function PlayerSelect(props: { handlePlayerChange: React.ChangeEventHandler<HTMLSelectElement> | undefined; }) {
   return (
     <>
       <div id="player-select">

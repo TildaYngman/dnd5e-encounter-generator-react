@@ -1,3 +1,4 @@
+import React from "react";
 import loadingImage from "../../assets/images/dragon.png"
 
 function Loading() {

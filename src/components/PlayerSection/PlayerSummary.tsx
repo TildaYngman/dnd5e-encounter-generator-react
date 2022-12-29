@@ -1,4 +1,6 @@
-export default function PlayerSummary(props) {
+import React from "react";
+
+export default function PlayerSummary(props: { xpThresholds: number[]; }) {
     return (
         <>
             <div id="player-summary-left">

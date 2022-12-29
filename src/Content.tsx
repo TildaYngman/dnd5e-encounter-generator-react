@@ -1,9 +1,26 @@
 import React from "react";
 import { PlayerSection, EncounterSection, MonsterSection, Header, MonsterToggle } from "./components";
 import { calculateXpValues, convertCrToXp } from "./scripts/tools";
+import { IMonster, IEncounter } from "./scripts/rendering";
 
-export default class Content extends React.Component {
-  constructor(props) {
+//Create an interface for the state
+
+interface IState {
+  numPlayers: number;
+  xpThresholds: number[];
+  encounter: IEncounter[];
+  xpTotal: number;
+  monsterCount: number;
+}
+
+interface IProps {
+  monsters: IMonster[];
+}
+
+// class Player extends React.Component<IProps, IState> {
+
+export default class Content extends React.Component<IProps, IState> {
+  constructor(props:IProps) {
     super(props);
     this.state = {
       numPlayers: 1,
@@ -19,15 +36,22 @@ export default class Content extends React.Component {
   }
 
   handlePlayerChange() {
+    const element = document.getElementById("number-of-players") as HTMLInputElement;
+    const numPlayersInt = parseInt(element.value);
     this.setState({
-      numPlayers: document.getElementById("number-of-players").value,
+      numPlayers: numPlayersInt,
     }, () => { 
       this.handleLevelChange();
     });
   }
 
   handleLevelChange() {
-    const playerLevels = document.querySelectorAll(".player-lvl");
+    const playerLevelsNodes = document.querySelectorAll(".player-lvl");
+    const playerLevels:HTMLInputElement[] = [];
+    playerLevelsNodes.forEach((player) => {
+      playerLevels.push(player as HTMLInputElement);
+    })
+
     const xpThresholds = calculateXpValues(playerLevels);
   
     this.setState({
@@ -35,7 +59,7 @@ export default class Content extends React.Component {
     });
   }
 
-  handleAddToEncounter(name, monsters) {
+  handleAddToEncounter(name: string, monsters: IMonster[]) {
     for (let monster of monsters) {
       if (name === monster.name) {
         const xp = convertCrToXp(monster.challenge_rating);
@@ -83,7 +107,7 @@ export default class Content extends React.Component {
     }
   }
 
-  handleRemoveFromEncounter(i) {
+  handleRemoveFromEncounter(i: number) {
     let tempArray = this.state.encounter;
     this.setState({ 
       xpTotal: this.state.xpTotal - tempArray[i].xp,

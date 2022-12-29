@@ -1,10 +1,14 @@
+import React, { ChangeEventHandler } from "react";
 import { convertNumPlayersToString } from "../../scripts/tools"
 
-export default function PartyList(props) {
-  let rows = [];
+export default function PartyList(props: {
+  handleLevelChange: ChangeEventHandler<HTMLSelectElement> | undefined;
+  numPlayers:number; 
+}){
+  let rows:any[] = [];
 
   for (let i = 0; i < props.numPlayers; i++) {
-    const numPlayersString = convertNumPlayersToString(i + 1);
+    const numPlayersString:any = convertNumPlayersToString(i + 1);
 
     rows.push(
     <div className="player-level-selector" key={"selector-" + i}>

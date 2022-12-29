@@ -6,10 +6,13 @@ import { convertCrToXp,
   convertNumPlayersToString,
   calculateMultiplier } from "./tools"
   
-
+export interface IMonster {
+  name: string;
+  challenge_rating: string
+}
 ////////////////////////////////Monster Section//////////////////////////////
 
-export function renderMonsters(props, id) {
+export function renderMonsters(props: { monsters: IMonster[]; handleAddToEncounter: (arg0: string, arg1: IMonster[]) => void; }, id: string | number) {
   let rows = [];
   for (const monster of props.monsters) {
     const cr = formatCrAsIdString(monster.challenge_rating);
@@ -26,9 +29,9 @@ export function renderMonsters(props, id) {
 export function addEventListenersToCollapsibles() {
   const coll = document.getElementsByClassName("collapsible");
   for (let i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function () {
+    coll[i].addEventListener("click", function (this: HTMLElement) {
       this.classList.toggle("active");
-      const content = this.nextElementSibling;
+      const content = this.nextElementSibling as HTMLElement;
       if (content.style.display === "block") {
         content.style.display = "none";
       } else {
@@ -39,12 +42,13 @@ export function addEventListenersToCollapsibles() {
 }
 
 export function toggleMonstersSection() {
-  document.getElementById("monsters-section").classList.toggle("visible");
+  const element = document.getElementById("monsters-section") as HTMLElement;
+  element.classList.toggle("visible");
 }
 
 ////////////////////////////////Player Section//////////////////////////////
 
-export function updatePlayerList(numPlayers) {
+export function updatePlayerList(numPlayers:number) {
   let rows = [];
 
   for (let i = 0; i < numPlayers; i++) {
@@ -88,11 +92,17 @@ export function updatePlayerList(numPlayers) {
 
 
 ////////////////////////////////Encounter Section//////////////////////////////
-
-export function generateEncounterList(props) {
+export interface IEncounter {
+  xp: number;
+  name: string;
+  count: number;
+  
+}
+  
+export function generateEncounterList(props: { encounter: IEncounter[]; handleRemoveFromEncounter: (arg0: number) => void; }) {
   const rows = [];
   for (let i = 0; i < props.encounter.length; i++) {
-    const xp = parseInt(props.encounter[i].xp);
+    const xp:number = props.encounter[i].xp;
 
     rows.push(
     <div key={"encounter-" + i} className="encounter-list-item">
@@ -117,10 +127,10 @@ export function generateEncounterList(props) {
 
 ////////////////////////////////Difficulty Indicator//////////////////////////////
 
-export function updateDifficultyIndicator(props) {
+export function updateDifficultyIndicator(props: { monsterCount: number; xpTotal: number; encounter: IEncounter[]; xpThresholds: number[]; }) {
   const multiplier = calculateMultiplier(props.monsterCount);
 
-  const finalTotal = props.xpTotal * multiplier;
+  const finalTotal:number = props.xpTotal * multiplier;
 
   if (props.encounter.length === 0) {
     return <h2>Add some monsters to begin!</h2>;
@@ -131,7 +141,7 @@ export function updateDifficultyIndicator(props) {
   }
 }
 
-function setDifficultyMessage(props, finalTotal) {
+function setDifficultyMessage(props: { monsterCount?: number; xpTotal: number; encounter: IEncounter[]; xpThresholds: number[]; }, finalTotal:number) {
   const easyXp = props.xpThresholds[0];
   const mediumXp = props.xpThresholds[1];
   const hardXp = props.xpThresholds[2];
@@ -156,5 +166,7 @@ function setDifficultyMessage(props, finalTotal) {
     return <h2>This encounter will be <span style={{ color: 'orange' }}>HARD</span> for your players!</h2>;
   } else if (difficultyThresholds[0] === deadlyXp) {
     return <h2>This encounter will be <span style={{ color: 'red' }}>DEADLY</span> for your players!</h2>;
+  } else {
+    return <h2></h2>;
   }
 }

@@ -1,8 +1,8 @@
+import React from "react";
 import banner from "../../assets/images/title_image.png";
-import { updateDifficultyIndicator } from "../../scripts/rendering"
+import { updateDifficultyIndicator, IEncounter } from "../../scripts/rendering"
 
-
-function Header(props) {
+function Header(props: { monsterCount: number; xpTotal: number; encounter: IEncounter[]; xpThresholds: number[]; }) {
   const diffMessage = updateDifficultyIndicator(props);
 
   return (
@@ -18,3 +18,5 @@ function Header(props) {
 }
 
 export default Header;
+
+

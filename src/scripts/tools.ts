@@ -1,10 +1,10 @@
-export function addListener(type, id, callback, param){
-    document.getElementById(id).addEventListener(type, function (){
-      callback(param);
-    });
-  }
+// export function addListener(type: any, id: string, callback: (arg0: any) => void, param: any){
+//     document.getElementById(id).addEventListener(type, function (){
+//       callback(param);
+//     });
+//   }
 
-export function calculateMultiplier(count) {
+export function calculateMultiplier(count:number):number {
   if (count === 0) {
     return 0;
   } else if (count === 1){
@@ -19,10 +19,12 @@ export function calculateMultiplier(count) {
     return 3;
   } else if (count >= 15) {
     return 4;
+  } else {
+    return 0;
   }
 }
 
-export function calculateXpValues(playerLevels){
+export function calculateXpValues(playerLevels:HTMLInputElement[]):number[]{
   let xpThresholds = [
     0,
     0,
@@ -163,13 +165,13 @@ export function calculateXpValues(playerLevels){
   return xpThresholds;
 }
 
-export function setDifficultyMessage(finalTotal) {
+export function setDifficultyMessage(finalTotal:number) {
   const easyXp = getXpValueFromPlayerSummary("easy-xp");
   const mediumXp = getXpValueFromPlayerSummary("medium-xp");
   const hardXp = getXpValueFromPlayerSummary("hard-xp");
   const deadlyXp = getXpValueFromPlayerSummary("deadly-xp");
 
-  const diffMeter = document.getElementById("difficulty-meter");
+  const diffMeter = <HTMLInputElement>document.getElementById("difficulty-meter")
 
   const difficultyThresholds = [
     easyXp,
@@ -178,7 +180,7 @@ export function setDifficultyMessage(finalTotal) {
     deadlyXp
   ];
 
-  difficultyThresholds.sort((a, b) => {
+  difficultyThresholds.sort((a: number, b:number) => {
     return Math.abs(finalTotal - a) - Math.abs(finalTotal - b);
 })
 
@@ -203,14 +205,15 @@ console.log(difficultyThresholds[0]);
   }
 }
 
-export function getXpValueFromPlayerSummary(id) {
-  let xpValue = document.getElementById(id).innerHTML;
+export function getXpValueFromPlayerSummary(id: string): number {
+  const element = <HTMLElement>document.getElementById(id);
+  let xpValue:string = element.innerHTML;
   xpValue = xpValue.replace(/\D/g,'');
-  xpValue = parseInt(xpValue);
-  return xpValue;
+  const xpInt:number = parseInt(xpValue);
+  return xpInt;
 }
 
-export function convertCrToXp(cr){
+export function convertCrToXp(cr:string): number{
     switch (cr){
       case "0":
         return 10;
@@ -285,7 +288,7 @@ export function convertCrToXp(cr){
     }
   }
   
-export function convertNumPlayersToString(numPlayersInt) {
+export function convertNumPlayersToString(numPlayersInt:number) {
   switch (numPlayersInt) {
     case 1:
       return "one";
@@ -308,7 +311,7 @@ export function convertNumPlayersToString(numPlayersInt) {
   }
 }
 
-export function formatCrAsIdString(rating) {
+export function formatCrAsIdString(rating:string) {
   switch (rating) {
     case "1/8":
       return "eighth";
